@@ -33,6 +33,7 @@
 	<modules>
 		<module>commons</module>
 		<module>admin</module>
+		<module>open</module>
 		<module>api</module>
 	</modules>
 	<dependencyManagement>
