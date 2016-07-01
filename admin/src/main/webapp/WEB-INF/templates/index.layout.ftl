@@ -34,9 +34,9 @@
             </button>
             <!-- brand -->
             <a href="#/" class="navbar-brand text-lt">
-                <i class="fa fa-bullhorn"></i>
+                <i class="fa fa-bullhorn text-warning-lter"></i>
                 <img src="${base}/assets/self/img/Mobile_Marketing.png" alt="." class="hide">
-                <span class="hidden-folded m-l-xs">新媒体营销</span>
+                <span class="hidden-folded m-l-xs text-warning-lter">新媒体营销</span>
             </a>
             <!-- / brand -->
         </div>
