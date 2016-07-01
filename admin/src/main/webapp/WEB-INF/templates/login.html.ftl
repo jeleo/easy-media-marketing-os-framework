@@ -29,9 +29,11 @@
                 <strong>账号登录</strong>
             </div>
             <form class="form-validation" name="form" action="${base}/auth/login" method="post">
-                <div class="text-danger wrapper text-center" ng-show="authError">
-
+                <#if Session.SPRING_SECURITY_LAST_EXCEPTION??>
+                <div class="text-danger wrapper text-center">
+                    ${Session.SPRING_SECURITY_LAST_EXCEPTION.message}
                 </div>
+                </#if>
                 <div class="list-group list-group-sm">
                     <div class="list-group-item">
                         <input type="text" placeholder="用户名" class="form-control no-border" name="username" ng-model="username" required>
