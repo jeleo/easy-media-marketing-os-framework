@@ -1,4 +1,4 @@
-package easy.media.marketing.os.framework.commons.constants;
+package easy.media.marketing.os.framework.commons.constants.weixin;
 
 /**
  * 微信公众号API全局返回码
