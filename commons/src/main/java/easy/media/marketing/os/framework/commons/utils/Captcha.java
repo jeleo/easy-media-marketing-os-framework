@@ -18,7 +18,7 @@ public class Captcha {
 
     private static final Logger logger = LoggerFactory.getLogger(Captcha.class);
 
-    public static final String SESSION_KEY_OF_CAPTCHA_DEFAULT = "loginCaptcha";
+    public static final String SESSION_KEY_OF_CAPTCHA_DEFAULT = SessionKey.LOGIN.value;
 
     /**
      * 定义图形大小
@@ -200,6 +200,23 @@ public class Captcha {
         public String getCharStr() {
             return charStr;
         }
+
+    }
+
+    public enum SessionKey {
+
+        LOGIN("loginCaptcha"),
+        REGISTER("registerCaptcha");
+
+        SessionKey(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        private String value;
 
     }
 

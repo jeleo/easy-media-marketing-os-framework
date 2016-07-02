@@ -19,4 +19,9 @@ public class AuthorizeController extends ControllerBus {
         return PATH_AUTH_LOGIN;
     }
 
+    @RequestMapping(value = "/register.html", method = RequestMethod.GET)
+    public String toRegister() {
+        return PATH_AUTH_REGISTER;
+    }
+
 }

@@ -8,6 +8,8 @@ public interface Controllers {
 
     String PATH_AUTH_LOGIN = "/login.html";
 
+    String PATH_AUTH_REGISTER = "/register.html";
+
     String PATH_DASHBOARD = "/index.html";
 
 }

@@ -2,10 +2,12 @@ package easy.media.marketing.os.framework.open.controller;
 
 import easy.media.marketing.os.framework.commons.utils.Captcha;
 import easy.media.marketing.os.framework.commons.web.view.TrailingSlashRedirectView;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,8 +36,18 @@ public class GlobalController extends ControllerBus {
     }
 
     @RequestMapping(value = "/captcha.html", method = RequestMethod.GET)
-    public void getCaptcha(HttpServletRequest request, HttpServletResponse response) {
-        Captcha.handle(request, response);
+    public void getCaptcha(@RequestParam(value = "type", required = false) String type, HttpServletRequest request, HttpServletResponse response) {
+        if (StringUtils.isNotEmpty(type)) {
+            switch (type) {
+                case "register" :
+                    Captcha.handle(request, response, Captcha.SessionKey.REGISTER.getValue());
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            Captcha.handle(request, response);
+        }
     }
 
 }
