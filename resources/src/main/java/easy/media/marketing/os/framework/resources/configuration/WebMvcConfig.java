@@ -2,7 +2,9 @@ package easy.media.marketing.os.framework.resources.configuration;
 
 import easy.media.marketing.os.framework.commons.web.config.CommonFreeMarkerConfiguration;
 import easy.media.marketing.os.framework.commons.web.customizer.JacksonObjectMapperCustomizer;
+import easy.media.marketing.os.framework.resources.controller.Controllers;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.*;
@@ -13,6 +15,7 @@ import java.util.List;
 
 @Configuration
 @EnableWebMvc
+@ComponentScan(basePackageClasses = {Controllers.class})
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override

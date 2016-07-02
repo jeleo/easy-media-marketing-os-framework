@@ -6,6 +6,7 @@ import easy.media.marketing.os.framework.admin.interceptor.Interceptors;
 import easy.media.marketing.os.framework.commons.web.config.CommonFreeMarkerConfiguration;
 import easy.media.marketing.os.framework.commons.web.customizer.JacksonObjectMapperCustomizer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -52,13 +53,15 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public FreeMarkerViewResolver freeMarkerViewResolver() {
+    public FreeMarkerViewResolver freeMarkerViewResolver(@Value("${static.resources.url}") String static_resources_url) {
         FreeMarkerViewResolver viewResolver = new FreeMarkerViewResolver();
 
         viewResolver.setSuffix(".ftl");
         viewResolver.setContentType("text/html; charset=utf-8");
         // 此变量值为pageContext.request, 页面使用方法：rc.contextPath
         viewResolver.setRequestContextAttribute("rc");
+        // 传递静态资源根路径
+        viewResolver.getAttributesMap().put("static_resources_url", static_resources_url);
         return viewResolver;
     }
 

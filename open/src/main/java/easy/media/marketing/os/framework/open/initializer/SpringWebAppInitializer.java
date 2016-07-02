@@ -1,7 +1,7 @@
 package easy.media.marketing.os.framework.open.initializer;
 
-import easy.media.marketing.os.framework.open.configuration.AppConfig;
-import easy.media.marketing.os.framework.open.configuration.WebMvcConfig;
+import easy.media.marketing.os.framework.open.configuration.RootConfig;
+import easy.media.marketing.os.framework.open.configuration.ServletConfig;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -13,12 +13,12 @@ public class SpringWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[]{AppConfig.class};
+        return new Class<?>[]{RootConfig.class};
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[]{WebMvcConfig.class};
+        return new Class<?>[]{ServletConfig.class};
     }
 
     @Override

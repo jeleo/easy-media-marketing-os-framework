@@ -23,6 +23,7 @@ public class GlobalInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        // 登录状态下设置用户名
         Principal principal = request.getUserPrincipal();
         if (principal != null) {
             modelAndView.addObject("username", principal.getName());
@@ -33,4 +34,5 @@ public class GlobalInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 
     }
+
 }

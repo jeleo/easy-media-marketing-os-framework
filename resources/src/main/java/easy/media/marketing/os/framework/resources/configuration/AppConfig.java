@@ -5,7 +5,6 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
-@PropertySource(value = {"classpath:settings.properties"})
 @EnableScheduling
 public class AppConfig {
 
