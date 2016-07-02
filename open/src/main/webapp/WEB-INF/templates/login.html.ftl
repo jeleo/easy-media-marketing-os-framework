@@ -54,6 +54,22 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="login()" ng-disabled='form.$invalid'>登录</button>
+                <div class="line line-dashed"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a ui-sref="access.forgotpwd">忘记密码?</a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="text-right"><small>没有帐号,</small></p>
+                            </div>
+                            <div class="col-md-6">
+                                <a ui-sref="access.signup"><span class="text-info-lter">立即注册</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
             </form>
         </div>
