@@ -897,7 +897,7 @@
                     <i class="fa fa-long-arrow-up"></i>
                 </a>
             </span>
-            &copy; 2016 Copyright.
+            &copy; ${copyright}
         </div>
     </footer>
     <!-- / footer -->

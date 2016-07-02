@@ -58,7 +58,7 @@
         </div>
         <div class="text-center">
             <p>
-                <small class="text-muted">开源新媒体管理系统<br>&copy; 2016</small>
+                <small class="text-muted">开源新媒体管理系统<br>${copyright}</small>
             </p>
         </div>
     </div>

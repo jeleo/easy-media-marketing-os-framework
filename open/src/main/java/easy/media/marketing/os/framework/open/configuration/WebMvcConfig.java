@@ -1,5 +1,6 @@
 package easy.media.marketing.os.framework.open.configuration;
 
+import easy.media.marketing.os.framework.commons.constants.Copyright;
 import easy.media.marketing.os.framework.open.controller.Controllers;
 import easy.media.marketing.os.framework.open.interceptor.GlobalInterceptor;
 import easy.media.marketing.os.framework.open.interceptor.Interceptors;
@@ -62,6 +63,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         viewResolver.setRequestContextAttribute("rc");
         // 传递静态资源根路径
         viewResolver.getAttributesMap().put("static_resources_url", static_resources_url);
+
+        // 设置版权
+        viewResolver.getAttributesMap().put("copyright", Copyright.INFO);
         return viewResolver;
     }
 
