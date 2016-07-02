@@ -32,6 +32,7 @@
 	</properties>
 	<modules>
 		<module>commons</module>
+		<module>resources</module>
 		<module>admin</module>
 		<module>open</module>
 		<module>api</module>
