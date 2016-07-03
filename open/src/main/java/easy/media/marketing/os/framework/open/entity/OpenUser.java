@@ -1,5 +1,6 @@
 package easy.media.marketing.os.framework.open.entity;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -37,12 +38,13 @@ public class OpenUser {
     @Column(name = "EMAIL", unique = true)
     private String email;
 
-    @Column(name = "CREATE_TIME")
-    private Long createTime;
+    @CreatedDate
+    @Column(name = "CREATE_DATE")
+    private Long createDate;
 
     @LastModifiedDate
-    @Column(name = "LAST_MODIFY_TIME")
-    private Long lastModifyTime;
+    @Column(name = "LAST_MODIFIED_DATE")
+    private Long lastModifiedDate;
 
     public Long getId() {
         return id;
@@ -84,19 +86,19 @@ public class OpenUser {
         this.email = email;
     }
 
-    public Long getCreateTime() {
-        return createTime;
+    public Long getCreateDate() {
+        return createDate;
     }
 
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
+    public void setCreateDate(Long createDate) {
+        this.createDate = createDate;
     }
 
-    public Long getLastModifyTime() {
-        return lastModifyTime;
+    public Long getLastModifiedDate() {
+        return lastModifiedDate;
     }
 
-    public void setLastModifyTime(Long lastModifyTime) {
-        this.lastModifyTime = lastModifyTime;
+    public void setLastModifiedDate(Long lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
 }
