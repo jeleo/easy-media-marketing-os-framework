@@ -46,7 +46,7 @@
                     <div class="list-group-item">
                         <div class="row">
                             <div class="col-xs-7 col-sm-7 col-md-7">
-                                <input type="text" placeholder="验证码" class="form-control no-border" name="captcha" required>
+                                <input type="text" placeholder="验证码" class="form-control no-border" name="captcha" ng-model="captcha" required>
                             </div>
                             <div class="col-xs-5 col-sm-5 col-md-5">
                                 <img style="cursor: pointer;" ng-src="{{captchaUrl}}" ng-click="refresh()" />
