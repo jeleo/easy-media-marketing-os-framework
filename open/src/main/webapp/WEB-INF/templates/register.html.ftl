@@ -84,7 +84,7 @@
             </p>
         </div>
 
-        <!-- 模态框（Modal） -->
+        <!-- 使用条款模态框 -->
         <script type="text/ng-template" id="terms.html">
             <div class="modal-header">
                 <a class="close" ng-click="disagree()">×</a>
