@@ -1,5 +1,6 @@
 package easy.media.marketing.os.framework.open.configuration;
 
+import easy.media.marketing.os.framework.commons.web.filter.CsrfHeaderFilter;
 import easy.media.marketing.os.framework.open.security.UserLogoutFilter;
 import easy.media.marketing.os.framework.open.security.Securities;
 import easy.media.marketing.os.framework.open.security.UsernamePasswordAuthenticationProvider;
@@ -19,6 +20,9 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -47,7 +51,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(userLogoutFilter, LogoutFilter.class)
-                .addFilterBefore(usernamePasswordCaptchaAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(usernamePasswordCaptchaAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
+                .csrf().csrfTokenRepository(csrfTokenRepository());
     }
 
     @Bean(name = "authenticationManager")
@@ -59,6 +65,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public AuthenticationEntryPoint authenticationEntryPoint() {
         return new LoginUrlAuthenticationEntryPoint(Securities.loginFormUrl);
+    }
+
+    @Bean
+    public CsrfTokenRepository csrfTokenRepository() {
+        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+        repository.setHeaderName("X-XSRF-TOKEN");
+        return repository;
     }
 
     @Autowired
