@@ -1,6 +1,9 @@
 package easy.media.marketing.os.framework.open.security;
 
+import easy.media.marketing.os.framework.open.entity.OpenUser;
+import easy.media.marketing.os.framework.open.service.OpenUserService;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
@@ -19,9 +22,13 @@ public class UsernamePasswordAuthenticationProvider extends AbstractUserDetailsA
     @Override
     protected UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
         String password = String.valueOf(authentication.getCredentials());
-        if (!(StringUtils.equals(username, "admin") && StringUtils.equals(password, "123456"))) {
+        OpenUser openUser = openUserService.loginByUsername(username, password);
+        if (openUser == null) {
             throw new AuthenticationServiceException("用户名或密码错误");
         }
-        return new SecurityUser(username, password);
+        return new SecurityUser(openUser);
     }
+
+    @Autowired
+    private OpenUserService openUserService;
 }

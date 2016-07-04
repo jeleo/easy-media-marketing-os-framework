@@ -1,13 +1,27 @@
 package easy.media.marketing.os.framework.open.controller;
 
+import easy.media.marketing.os.framework.commons.utils.Captcha;
 import easy.media.marketing.os.framework.commons.web.view.TrailingSlashRedirectView;
+import easy.media.marketing.os.framework.open.model.Register;
+import easy.media.marketing.os.framework.open.service.OpenUserService;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/auth")
 public class AuthorizeController extends ControllerBus {
+
+    private static Logger logger = LoggerFactory.getLogger(AuthorizeController.class);
 
     @RequestMapping("")
     public TrailingSlashRedirectView redirectIndex() {
@@ -23,5 +37,34 @@ public class AuthorizeController extends ControllerBus {
     public String toRegister() {
         return PATH_AUTH_REGISTER;
     }
+
+    @RequestMapping(value = "/register.html", method = RequestMethod.POST)
+    @ResponseBody
+    public Object doRegister(@RequestBody Register register, HttpSession session) {
+
+        if (StringUtils.isEmpty(register.getPassword()) || StringUtils.isEmpty(register.getPasswordConfirmed())) {
+
+        }
+
+        if (!StringUtils.equals(register.getPassword(), register.getPasswordConfirmed())) {
+
+        }
+
+        String captchaInSession = String.valueOf(session.getAttribute(Captcha.SessionKey.REGISTER.value));
+        if (StringUtils.equals(register.getCaptcha(), captchaInSession)) {
+
+        }
+
+        try {
+            openUserService.create(register.getUsername(), register.getPassword(), register.getEmail());
+        } catch (Exception e) {
+            logger.error("register failed, " + register, e);
+        }
+
+        return null;
+    }
+
+    @Autowired
+    private OpenUserService openUserService;
 
 }

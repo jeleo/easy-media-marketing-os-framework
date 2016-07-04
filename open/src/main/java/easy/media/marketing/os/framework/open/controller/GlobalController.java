@@ -40,7 +40,7 @@ public class GlobalController extends ControllerBus {
         if (StringUtils.isNotEmpty(type)) {
             switch (type) {
                 case "register" :
-                    Captcha.handle(request, response, Captcha.SessionKey.REGISTER.getValue());
+                    Captcha.handle(request, response, Captcha.SessionKey.REGISTER.value);
                     break;
                 default:
                     break;

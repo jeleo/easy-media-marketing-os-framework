@@ -1,5 +1,6 @@
 package easy.media.marketing.os.framework.open.security;
 
+import easy.media.marketing.os.framework.open.entity.OpenUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
@@ -8,12 +9,14 @@ import java.util.Collection;
 
 public class SecurityUser extends User{
 
-    public SecurityUser(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-        super(username, password, authorities);
+    private OpenUser loginUser;
+
+    public SecurityUser(OpenUser loginUser) {
+        super(loginUser.getUsername(), loginUser.getPassword(), loginUser.getEnabled().value, true, true, true, new ArrayList<GrantedAuthority>());
     }
 
-    public SecurityUser(String username, String password) {
-        this(username, password, new ArrayList<GrantedAuthority>());
+    public OpenUser getLoginUser() {
+        return loginUser;
     }
 
-}
+ }

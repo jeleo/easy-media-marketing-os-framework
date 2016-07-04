@@ -23,7 +23,7 @@
 <div class="app app-header-fixed ">
 
 
-    <div class="container w-xxl w-auto-xs" ng-app="app" ng-controller="signupFormController" ng-init="app.settings.container = false;captchaUrl='${base}/captcha.html?type=register';authError=false">
+    <div class="container w-xxl w-auto-xs" ng-app="app" ng-controller="signupFormController" ng-init="app.settings.container = false;captchaUrl='${base}/captcha.html?type=register';registerUrl='${base}/auth/register.html';authError=false">
         <a href class="navbar-brand block m-t">Easy Media Marketing OS</a>
 
         <div class="m-b-lg">
@@ -37,21 +37,21 @@
                 </div>
                 <div class="list-group list-group-sm">
                     <div class="list-group-item">
-                        <input name="username" placeholder="用&ensp;户&ensp;名" class="form-control no-border" ng-model="username" required>
+                        <input name="username" placeholder="用&ensp;户&ensp;名" class="form-control no-border" ng-model="user.username" required>
                     </div>
                     <div class="list-group-item">
-                        <input name="email" type="email" placeholder="邮&emsp;&emsp;箱" class="form-control no-border" ng-model="email" required>
+                        <input name="email" type="email" placeholder="邮&emsp;&emsp;箱" class="form-control no-border" ng-model="user.email" required>
                     </div>
                     <div class="list-group-item">
-                        <input name="password" type="password" placeholder="设置密码" class="form-control no-border" ng-model="password" required>
+                        <input name="password" type="password" placeholder="设置密码" class="form-control no-border" ng-model="user.password" required>
                     </div>
                     <div class="list-group-item">
-                        <input name="passwordConfirmed" type="password" placeholder="确认密码" class="form-control no-border" ng-model="passwordConfirmed" required>
+                        <input name="passwordConfirmed" type="password" placeholder="确认密码" class="form-control no-border" ng-model="user.passwordConfirmed" required>
                     </div>
                     <div class="list-group-item">
                         <div class="row">
                             <div class="col-xs-7 col-sm-7 col-md-7">
-                                <input type="text" placeholder="验&ensp;证&ensp;码" class="form-control no-border" name="captcha" ng-model="captcha" required>
+                                <input type="text" placeholder="验&ensp;证&ensp;码" class="form-control no-border" name="captcha" ng-model="user.captcha" required>
                             </div>
                             <div class="col-xs-5 col-sm-5 col-md-5">
                                 <img style="cursor: pointer;" ng-src="{{captchaUrl}}" ng-click="refresh()" />

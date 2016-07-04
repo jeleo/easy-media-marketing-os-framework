@@ -9,9 +9,13 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 
 import javax.sql.DataSource;
 
@@ -55,6 +59,20 @@ public class PersistenceConfig {
         dataSource.setValidationQuery(validation);
 
         return dataSource;
+    }
+
+    @Bean
+    public AuditorAware<String> auditorProvider() {
+        return new AuditorAware<String>() {
+            @Override
+            public String getCurrentAuditor() {
+                Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+                if (authentication == null || !authentication.isAuthenticated()) {
+                    return null;
+                }
+                return ((User) authentication.getPrincipal()).getUsername();
+            }
+        };
     }
 
 }

@@ -212,11 +212,7 @@ public class Captcha {
             this.value = value;
         }
 
-        public String getValue() {
-            return value;
-        }
-
-        private String value;
+        public String value;
 
     }
 
