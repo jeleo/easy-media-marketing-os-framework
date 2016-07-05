@@ -12,12 +12,23 @@ public class OpenUserServiceImpl implements OpenUserService {
 
     @Override
     public OpenUser create(String username, String password, String email) {
-        return null;
+        OpenUser openUser = new OpenUser();
+        openUser.setUsername(username);
+        openUser.setPassword(password);
+        openUser.setEmail(email);
+        return openUserRepository.save(openUser);
     }
 
     @Override
     public OpenUser update(String uid, String username, String password, String email) {
-        return null;
+        OpenUser openUser = openUserRepository.getOneByUid(uid);
+        if (openUser == null) {
+            throw new NullPointerException("无法找到uid是" + uid + "的用户");
+        }
+        openUser.setUsername(username);
+        openUser.setPassword(password);
+        openUser.setEmail(email);
+        return openUserRepository.save(openUser);
     }
 
     @Override
@@ -38,6 +49,16 @@ public class OpenUserServiceImpl implements OpenUserService {
     @Override
     public OpenUser loginByUsername(String username, String password) {
         return openUserRepository.getOneByUsername(username, Encoding.MD5(password));
+    }
+
+    @Override
+    public OpenUser getOneByUsername(String username) {
+        return openUserRepository.getOneByUsername(username);
+    }
+
+    @Override
+    public OpenUser getOneByEmail(String email) {
+        return openUserRepository.getOneByEmail(email);
     }
 
     @Autowired

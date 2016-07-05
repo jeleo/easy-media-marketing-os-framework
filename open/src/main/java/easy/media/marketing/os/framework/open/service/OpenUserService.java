@@ -21,4 +21,8 @@ public interface OpenUserService {
 
     OpenUser loginByUsername(String username, String password);
 
+    OpenUser getOneByUsername(String username);
+
+    OpenUser getOneByEmail(String email);
+
 }

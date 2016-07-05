@@ -18,8 +18,14 @@ public interface OpenUserRepository extends JpaRepository<OpenUser, Long> {
     @Query("SELECT e FROM OpenUser e WHERE e.uid = :uid")
     OpenUser getOneByUid(@Param("uid")String uid);
 
+    @Query("SELECT e FROM OpenUser e WHERE e.username = :username")
+    OpenUser getOneByUsername(@Param("username")String username);
+
     @Query("SELECT e FROM OpenUser e WHERE e.username = :username AND e.password = :password")
     OpenUser getOneByUsername(@Param("username")String username, @Param("password")String password);
+
+    @Query("SELECT e FROM OpenUser e WHERE e.email = :email")
+    OpenUser getOneByEmail(@Param("email")String email);
 
     @Transactional
     @Modifying

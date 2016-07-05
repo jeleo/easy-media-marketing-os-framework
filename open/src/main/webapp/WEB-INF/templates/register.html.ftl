@@ -46,12 +46,12 @@
                         <input name="password" type="password" placeholder="设置密码" class="form-control no-border" ng-model="user.password" required>
                     </div>
                     <div class="list-group-item">
-                        <input name="passwordConfirmed" type="password" placeholder="确认密码" class="form-control no-border" ng-model="user.passwordConfirmed" required>
+                        <input name="passwordConfirmed" type="password" placeholder="确认密码" class="form-control no-border" ng-model="user.passwordConfirmed" >
                     </div>
                     <div class="list-group-item">
                         <div class="row">
                             <div class="col-xs-7 col-sm-7 col-md-7">
-                                <input type="text" placeholder="验&ensp;证&ensp;码" class="form-control no-border" name="captcha" ng-model="user.captcha" required>
+                                <input type="text" placeholder="验&ensp;证&ensp;码" class="form-control no-border" name="captcha" ng-model="user.captcha" >
                             </div>
                             <div class="col-xs-5 col-sm-5 col-md-5">
                                 <img style="cursor: pointer;" ng-src="{{captchaUrl}}" ng-click="refresh()" />

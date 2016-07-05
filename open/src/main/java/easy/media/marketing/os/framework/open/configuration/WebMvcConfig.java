@@ -6,16 +6,23 @@ import easy.media.marketing.os.framework.open.interceptor.GlobalInterceptor;
 import easy.media.marketing.os.framework.open.interceptor.Interceptors;
 import easy.media.marketing.os.framework.commons.web.config.CommonFreeMarkerConfiguration;
 import easy.media.marketing.os.framework.commons.web.customizer.JacksonObjectMapperCustomizer;
+import org.hibernate.validator.HibernateValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfig;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
+import javax.validation.Validator;
 import java.util.List;
 
 @Configuration
@@ -67,6 +74,18 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         // 设置版权
         viewResolver.getAttributesMap().put("copyright", Copyright.INFO);
         return viewResolver;
+    }
+
+    @Bean(name = DispatcherServlet.MULTIPART_RESOLVER_BEAN_NAME)
+    public MultipartResolver multipartResolver() {
+        return new StandardServletMultipartResolver();
+    }
+
+    @Bean
+    public Validator validator() {
+        LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+        validator.setProviderClass(HibernateValidator.class);
+        return validator;
     }
 
     @Autowired

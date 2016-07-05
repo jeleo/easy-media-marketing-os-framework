@@ -1,7 +1,9 @@
 package easy.media.marketing.os.framework.open.model;
 
+import easy.media.marketing.os.framework.open.error.OpenErrorString;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * 表单提交的注册信息封装
@@ -15,14 +17,19 @@ public class Register {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 
+    @NotEmpty(message = OpenErrorString.e10004)
     private String username;
 
+    @NotEmpty(message = OpenErrorString.e10007)
     private String password;
 
+    @NotEmpty(message = OpenErrorString.e10002)
     private String email;
 
+    @NotEmpty(message = OpenErrorString.e20001)
     private String passwordConfirmed;
 
+    @NotEmpty(message = OpenErrorString.e10000)
     private String captcha;
 
     public String getUsername() {

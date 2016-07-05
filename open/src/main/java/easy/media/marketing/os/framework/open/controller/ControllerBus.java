@@ -1,8 +1,12 @@
 package easy.media.marketing.os.framework.open.controller;
 
+import easy.media.marketing.os.framework.commons.error.ErrorEntry;
+import easy.media.marketing.os.framework.commons.error.ErrorInfo;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.validation.FieldError;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 控制器总线
@@ -34,6 +38,11 @@ public abstract class ControllerBus implements Controllers {
             }
         }
         return isMobile;
+    }
+
+    protected ErrorInfo convert(List<FieldError> fieldErrors) {
+        // 暂时只处理一条错误提示
+        return ErrorEntry.build(fieldErrors.get(0).getDefaultMessage());
     }
 
 }
