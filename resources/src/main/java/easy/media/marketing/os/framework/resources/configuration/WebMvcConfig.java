@@ -1,16 +1,18 @@
 package easy.media.marketing.os.framework.resources.configuration;
 
 import easy.media.marketing.os.framework.commons.web.config.CommonFreeMarkerConfiguration;
-import easy.media.marketing.os.framework.commons.web.customizer.JacksonObjectMapperCustomizer;
 import easy.media.marketing.os.framework.resources.controller.Controllers;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfig;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -31,7 +33,13 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-        JacksonObjectMapperCustomizer.customize(converters);
+        converters.add(mappingJackson2HttpMessageConverter());
+    }
+
+    private MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
+        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+        mappingJackson2HttpMessageConverter.setSupportedMediaTypes(Arrays.asList(MediaType.TEXT_HTML, MediaType.APPLICATION_JSON_UTF8));
+        return mappingJackson2HttpMessageConverter;
     }
 
     @Bean
