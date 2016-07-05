@@ -70,7 +70,8 @@ public class PersistenceConfig {
                 if (authentication == null || !authentication.isAuthenticated()) {
                     return null;
                 }
-                return ((User) authentication.getPrincipal()).getUsername();
+                Object principal = authentication.getPrincipal();
+                return principal instanceof String ? String.valueOf(principal) : ((User) principal).getUsername();
             }
         };
     }

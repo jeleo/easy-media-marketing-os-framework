@@ -57,11 +57,11 @@ public class AuthorizeController extends ControllerBus {
             return OpenErrorEntry.e10001;
         }
 
-        if (openUserService.getOneByUsername(register.getUsername()) == null) {
+        if (openUserService.getOneByUsername(register.getUsername()) != null) {
             return OpenErrorEntry.e20003;
         }
 
-        if (openUserService.getOneByEmail(register.getEmail()) == null) {
+        if (openUserService.getOneByEmail(register.getEmail()) != null) {
             return OpenErrorEntry.e20004;
         }
 

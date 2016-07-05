@@ -14,6 +14,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class ErrorInfo {
 
+    private final static String ERRCODE = "errcode";
+
+    private final static String ERRMSG = "errmsg";
+
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
@@ -33,12 +37,12 @@ public class ErrorInfo {
         this.errmsg = errmsg;
     }
 
-    @XmlElement(name = "errcode")
+    @XmlElement(name = ERRCODE)
     public Integer getErrcode() {
         return errcode;
     }
 
-    @XmlElement(name = "errmsg")
+    @XmlElement(name = ERRMSG)
     public String getErrmsg() {
         return errmsg;
     }

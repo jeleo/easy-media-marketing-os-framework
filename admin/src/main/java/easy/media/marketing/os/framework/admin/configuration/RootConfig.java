@@ -8,6 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
 @PropertySource(value = {"classpath:settings.properties"})
+@EnableAspectJAutoProxy
 @EnableScheduling
 @Import({PersistenceConfig.class, SecurityConfig.class})
 @ComponentScan(basePackageClasses = {Utils.class, Services.class})

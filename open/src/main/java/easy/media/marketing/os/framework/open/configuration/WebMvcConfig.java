@@ -5,15 +5,15 @@ import easy.media.marketing.os.framework.open.controller.Controllers;
 import easy.media.marketing.os.framework.open.interceptor.GlobalInterceptor;
 import easy.media.marketing.os.framework.open.interceptor.Interceptors;
 import easy.media.marketing.os.framework.commons.web.config.CommonFreeMarkerConfiguration;
-import easy.media.marketing.os.framework.commons.web.customizer.JacksonObjectMapperCustomizer;
 import org.hibernate.validator.HibernateValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
@@ -23,6 +23,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfig;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
 import javax.validation.Validator;
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -48,7 +49,13 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-        JacksonObjectMapperCustomizer.customize(converters);
+        converters.add(mappingJackson2HttpMessageConverter());
+    }
+
+    private MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
+        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+        mappingJackson2HttpMessageConverter.setSupportedMediaTypes(Arrays.asList(MediaType.TEXT_HTML, MediaType.APPLICATION_JSON_UTF8));
+        return mappingJackson2HttpMessageConverter;
     }
 
     @Bean
