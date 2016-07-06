@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * 公众用户持久化
  *
@@ -36,5 +38,8 @@ public interface OpenUserRepository extends JpaRepository<OpenUser, Long> {
     @Modifying
     @Query("UPDATE OpenUser e SET e.deleted = :idDeleted WHERE e.uid = :uid")
     void deleteByUid(@Param("idDeleted")BooleanStatus idDeleted, @Param("uid")String uid);
+
+    @Query("SELECT e FROM OpenUser e WHERE e.deleted = :idDeleted")
+    List<OpenUser> findIsDeleted(@Param("idDeleted")BooleanStatus idDeleted);
 
 }

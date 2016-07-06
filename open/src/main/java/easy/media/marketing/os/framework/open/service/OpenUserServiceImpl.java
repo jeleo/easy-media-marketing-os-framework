@@ -7,6 +7,8 @@ import easy.media.marketing.os.framework.open.repository.OpenUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OpenUserServiceImpl implements OpenUserService {
 
@@ -59,6 +61,16 @@ public class OpenUserServiceImpl implements OpenUserService {
     @Override
     public OpenUser getOneByEmail(String email) {
         return openUserRepository.getOneByEmail(email);
+    }
+
+    @Override
+    public List<OpenUser> findNotDeleted() {
+        return openUserRepository.findIsDeleted(BooleanStatus.FALSE);
+    }
+
+    @Override
+    public List<OpenUser> findAll() {
+        return openUserRepository.findAll();
     }
 
     @Autowired

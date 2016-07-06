@@ -2,6 +2,8 @@ package easy.media.marketing.os.framework.open.service;
 
 import easy.media.marketing.os.framework.open.entity.OpenUser;
 
+import java.util.List;
+
 /**
  * 提供公众用户对象各项服务
  *
@@ -24,5 +26,9 @@ public interface OpenUserService {
     OpenUser getOneByUsername(String username);
 
     OpenUser getOneByEmail(String email);
+
+    List<OpenUser> findNotDeleted();
+
+    List<OpenUser> findAll();
 
 }
