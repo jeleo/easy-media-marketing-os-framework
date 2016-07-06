@@ -16,7 +16,7 @@ public class OpenUserServiceImpl implements OpenUserService {
     public OpenUser create(String username, String password, String email) {
         OpenUser openUser = new OpenUser();
         openUser.setUsername(username);
-        openUser.setPassword(password);
+        openUser.setPassword(Encoding.MD5(password));
         openUser.setEmail(email);
         return openUserRepository.save(openUser);
     }
@@ -28,7 +28,7 @@ public class OpenUserServiceImpl implements OpenUserService {
             throw new NullPointerException("无法找到uid是" + uid + "的用户");
         }
         openUser.setUsername(username);
-        openUser.setPassword(password);
+        openUser.setPassword(Encoding.MD5(password));
         openUser.setEmail(email);
         return openUserRepository.save(openUser);
     }
