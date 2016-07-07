@@ -26,7 +26,7 @@ public class GlobalController extends ControllerBus {
         if (pricinpal != null) {
             return PATH_REDIRECT_DASHBOARD;
         } else {
-            return PATH_REDIRECT_LOGIN;
+            return VIEW_DEFAULT;
         }
     }
 

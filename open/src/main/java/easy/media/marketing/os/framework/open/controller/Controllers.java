@@ -12,7 +12,9 @@ public interface Controllers {
 
     String PATH_DASHBOARD = "/index.html";
 
+    String VIEW_DEFAULT = "/index.html";
     String VIEW_URL_ROOT = "/views";
     String VIEW_URL_APP = "/app.html";
+    String VIEW_URL_LOGIN = "/page_signin.html";
 
 }
