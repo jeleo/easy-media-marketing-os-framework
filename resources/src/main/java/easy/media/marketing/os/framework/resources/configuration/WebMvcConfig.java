@@ -46,7 +46,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     public FreeMarkerConfig freeMarkerConfig() {
         CommonFreeMarkerConfiguration config = new CommonFreeMarkerConfiguration();
 
-        config.setTemplateLoaderPath("WEB-INF/templates");
+        config.setTemplateLoaderPath("WEB-INF/views");
 
         return config;
     }
