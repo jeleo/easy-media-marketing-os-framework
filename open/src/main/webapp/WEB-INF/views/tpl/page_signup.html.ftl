@@ -63,12 +63,12 @@
     <script type="text/ng-template" id="registerSuccess.html">
         <div class="modal-header">
             <h4 class="modal-title">
-                <i class="fa fa-check"></i>
+                <i class="fa fa-check text-success"></i>
                 注册成功
             </h4>
         </div>
         <div class="modal-body">
-            请牢记您的用户名&nbsp;{{registered}}&nbsp;.
+            请牢记您的用户名&nbsp;<span class="text-danger">{{registered}}</span>&nbsp;.
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" ng-click="login()">立即登录</button>
