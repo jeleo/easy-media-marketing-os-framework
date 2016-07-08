@@ -28,6 +28,11 @@ public class ViewController extends ControllerBus {
         return page(VIEW_LOGIN);
     }
 
+    @RequestMapping(value = VIEW_REGISTER, method = RequestMethod.GET)
+    public String toRegister() {
+        return page(VIEW_REGISTER);
+    }
+
     @RequestMapping(value = VIEW_FORGOTPWD, method = RequestMethod.GET)
     public String toForgotpwd() {
         return page(VIEW_FORGOTPWD);

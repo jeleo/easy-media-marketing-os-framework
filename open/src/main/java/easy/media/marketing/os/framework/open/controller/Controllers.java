@@ -17,6 +17,7 @@ public interface Controllers {
     String VIEW_APP = "/app.html";
     String VIEW_FOOTER = "/page_footer.html";
     String VIEW_LOGIN = "/page_signin.html";
+    String VIEW_REGISTER = "/page_signup.html";
     String VIEW_FORGOTPWD = "/page_forgotpwd.html";
 
 }
