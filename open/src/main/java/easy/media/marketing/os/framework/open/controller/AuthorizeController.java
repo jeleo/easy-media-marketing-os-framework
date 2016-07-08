@@ -1,7 +1,6 @@
 package easy.media.marketing.os.framework.open.controller;
 
 import easy.media.marketing.os.framework.commons.utils.Captcha;
-import easy.media.marketing.os.framework.commons.web.view.TrailingSlashRedirectView;
 import easy.media.marketing.os.framework.open.error.OpenErrorEntry;
 import easy.media.marketing.os.framework.open.model.Register;
 import easy.media.marketing.os.framework.open.service.OpenUserService;
@@ -9,39 +8,19 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-@Controller
+@RestController
 @RequestMapping("/auth")
 public class AuthorizeController extends ControllerBus {
 
     private static Logger logger = LoggerFactory.getLogger(AuthorizeController.class);
 
-    @RequestMapping("")
-    public TrailingSlashRedirectView redirectIndex() {
-        return new TrailingSlashRedirectView("/auth/login.html");
-    }
-
-    @RequestMapping(value = "/login.html", method = RequestMethod.GET)
-    public String toLogin() {
-        return PATH_AUTH_LOGIN;
-    }
-
-    @RequestMapping(value = "/register.html", method = RequestMethod.GET)
-    public String toRegister() {
-        return PATH_AUTH_REGISTER;
-    }
-
     @RequestMapping(value = "/register.html", method = RequestMethod.POST)
-    @ResponseBody
     public Object doRegister(@RequestBody @Valid Register register, BindingResult registerErrors, HttpSession session) {
 
         if(registerErrors.hasErrors()) {

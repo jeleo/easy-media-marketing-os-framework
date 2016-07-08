@@ -58,4 +58,31 @@
     <div class="text-center" ng-include="'views/page_footer.html'">
         {% include 'blocks/page_footer.html' %}
     </div>
+
+    <!-- 注册成功模态框 -->
+    <script type="text/ng-template" id="registerSuccess.html">
+        <div class="modal-header">
+            <h4 class="modal-title">注册成功</h4>
+        </div>
+        <div class="modal-body">
+            请牢记您的用户名&nbsp;{{user.username}}&nbsp;。
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-primary" ui-sref="access.signin">登录</a>
+        </div>
+    </script>
+
+    <!-- 使用条款模态框 -->
+    <script type="text/ng-template" id="terms.html">
+        <div class="modal-header">
+            <a class="close" ng-click="disagree()">×</a>
+            <h4 class="modal-title">用户使用条款</h4>
+        </div>
+        <div class="modal-body">
+            开发中,免费.
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="agree()">同意并继续</button>
+        </div>
+    </script>
 </div>

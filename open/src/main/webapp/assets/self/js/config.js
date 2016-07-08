@@ -5,6 +5,11 @@ var context_path = document.getElementById("context_path").innerText;
 var static_resources_url = document.getElementById("static_resources_url").innerText;
 var static_resources_url_vendor = static_resources_url + "/assets/vendor";
 
+var api = function(url) {
+    url = context_path + url;
+    return url;
+};
+
 var app =
     angular.module('app')
         .config(
