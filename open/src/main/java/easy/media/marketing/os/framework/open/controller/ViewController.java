@@ -10,22 +10,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by jeleo on 2016/7/7.
  */
 @Controller
-@RequestMapping("/views")
+@RequestMapping(Controllers.VIEW_ROOT)
 public class ViewController extends ControllerBus {
 
-    @RequestMapping(value = "/app.html", method = RequestMethod.GET)
+    @RequestMapping(value = VIEW_APP, method = RequestMethod.GET)
     public String toApp() {
-        return "/tpl/app.html";
+        return page(VIEW_APP);
     }
 
-    @RequestMapping(value = "/page_footer.html", method = RequestMethod.GET)
+    @RequestMapping(value = VIEW_FOOTER, method = RequestMethod.GET)
     public String toFooter() {
-        return "/tpl/blocks/page_footer.html";
+        return layout(VIEW_FOOTER);
     }
 
-    @RequestMapping(value = "page_signin.html", method = RequestMethod.GET)
+    @RequestMapping(value = VIEW_LOGIN, method = RequestMethod.GET)
     public String toSignin() {
-        return "/tpl/page_signin.html";
+        return page(VIEW_LOGIN);
+    }
+
+    @RequestMapping(value = VIEW_FORGOTPWD, method = RequestMethod.GET)
+    public String toForgotpwd() {
+        return page(VIEW_FORGOTPWD);
+    }
+
+    private String layout(String path) {
+        return "/tpl/blocks" + path;
+    }
+
+    private String page(String path) {
+        return "/tpl" + path;
     }
 
 }

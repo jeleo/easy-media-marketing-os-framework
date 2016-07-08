@@ -5,6 +5,9 @@
 app.controller('SigninFormController', ['$scope', '$http', '$state', function($scope, $http, $state) {
     $scope.user = {};
     $scope.authError = null;
+    $scope.refresh = function() {
+        $scope.captchaUrl = $scope.captchaUrl + "?" + Math.floor(Math.random() * 100);
+    };
     $scope.login = function() {
       $scope.authError = null;
       // Try to login
