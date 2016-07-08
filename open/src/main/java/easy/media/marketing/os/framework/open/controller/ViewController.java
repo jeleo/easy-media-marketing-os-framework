@@ -18,6 +18,11 @@ public class ViewController extends ControllerBus {
         return page(VIEW_APP);
     }
 
+    @RequestMapping(value = VIEW_404, method = RequestMethod.GET)
+    public String to404() {
+        return page(VIEW_404);
+    }
+
     @RequestMapping(value = VIEW_FOOTER, method = RequestMethod.GET)
     public String toFooter() {
         return layout(VIEW_FOOTER);
