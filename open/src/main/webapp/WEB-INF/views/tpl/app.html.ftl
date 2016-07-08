@@ -1,12 +1,12 @@
 <#import "/spring.ftl" as spring />
 <#assign base = "${rc.contextPath}">
 <!-- navbar -->
-<div data-ng-include=" 'tpl/blocks/header.html' " class="app-header navbar">
+<div data-ng-include=" 'views/header.html' " class="app-header navbar">
 </div>
 <!-- / navbar -->
 
 <!-- menu -->
-<div data-ng-include=" 'tpl/blocks/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}">
+<div data-ng-include=" 'views/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}">
 </div>
 <!-- / menu -->
 
@@ -21,9 +21,13 @@
 
 <!-- footer -->
 <div class="app-footer wrapper b-t bg-light">
-    <span class="pull-right">{{app.version}} <a href ui-scroll-to="app" class="m-l-sm text-muted"><i
-            class="fa fa-long-arrow-up"></i></a></span>
-    &copy; 2016 Copyright.
+    <span class="pull-right">
+        {{app.version}}
+        <a href ui-scroll-to="app" class="m-l-sm text-muted">
+            <i class="fa fa-long-arrow-up"></i>
+        </a>
+    </span>
+    ${copyright}
 </div>
 <!-- / footer -->
 

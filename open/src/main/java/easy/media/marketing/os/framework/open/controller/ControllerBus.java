@@ -40,6 +40,10 @@ public abstract class ControllerBus implements Controllers {
         return isMobile;
     }
 
+    protected String redirect(String url) {
+        return "redirect:" + url;
+    }
+
     protected ErrorInfo convert(List<FieldError> fieldErrors) {
         // 暂时只处理一条错误提示
         return ErrorEntry.build(fieldErrors.get(0).getDefaultMessage());

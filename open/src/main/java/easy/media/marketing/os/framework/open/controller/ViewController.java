@@ -23,6 +23,26 @@ public class ViewController extends ControllerBus {
         return layout(VIEW_FOOTER);
     }
 
+    @RequestMapping(value = VIEW_HEADER, method = RequestMethod.GET)
+    public String toHeader() {
+        return layout(VIEW_HEADER);
+    }
+
+    @RequestMapping(value = VIEW_ASIDE, method = RequestMethod.GET)
+    public String toAside() {
+        return layout(VIEW_ASIDE);
+    }
+
+    @RequestMapping(value = VIEW_NAV, method = RequestMethod.GET)
+    public String toNav() {
+        return layout(VIEW_NAV);
+    }
+
+    @RequestMapping(value = VIEW_DASHBOARD, method = RequestMethod.GET)
+    public String toDashboard() {
+        return page(VIEW_DASHBOARD);
+    }
+
     @RequestMapping(value = VIEW_LOGIN, method = RequestMethod.GET)
     public String toSignin() {
         return page(VIEW_LOGIN);

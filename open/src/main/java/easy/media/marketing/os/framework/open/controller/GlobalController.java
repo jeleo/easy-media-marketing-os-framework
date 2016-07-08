@@ -28,7 +28,7 @@ public class GlobalController extends ControllerBus {
 //        } else {
 //            return VIEW_DEFAULT;
 //        }
-        return VIEW_DEFAULT;
+        return super.redirect(VIEW_DEFAULT);
     }
 
     @RequestMapping(value = VIEW_DEFAULT, method = RequestMethod.GET)

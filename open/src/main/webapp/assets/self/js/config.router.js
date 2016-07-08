@@ -23,6 +23,10 @@ angular.module('app')
                     url: '/app',
                     templateUrl: layout
                 })
+                .state('app.dashboard', {
+                    url: '/dashboard',
+                    templateUrl: 'views/app_dashboard.html'
+                })
                 .state('access', {
                     url: '/access',
                     template: '<div ui-view class="fade-in-right-big smooth"></div>'
