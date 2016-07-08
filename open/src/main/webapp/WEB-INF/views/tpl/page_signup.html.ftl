@@ -41,7 +41,7 @@
                     <input type="checkbox" ng-model="agree" required><i></i> 我已阅读并同意 <a ng-click="showTerms()">《使用条款》</a>
                 </label>
             </div>
-            <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="signup()" ng-disabled='form.$invalid'>注册</button>
+            <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="register()" ng-disabled='form.$invalid'>注册</button>
             <div class="line line-dashed"></div>
             <div class="row">
                 <div class="col-md-6">
@@ -62,13 +62,16 @@
     <!-- 注册成功模态框 -->
     <script type="text/ng-template" id="registerSuccess.html">
         <div class="modal-header">
-            <h4 class="modal-title">注册成功</h4>
+            <h4 class="modal-title">
+                <i class="fa fa-check"></i>
+                注册成功
+            </h4>
         </div>
         <div class="modal-body">
-            请牢记您的用户名&nbsp;{{user.username}}&nbsp;。
+            请牢记您的用户名&nbsp;{{registered}}&nbsp;.
         </div>
         <div class="modal-footer">
-            <a class="btn btn-primary" ui-sref="access.signin">登录</a>
+            <button class="btn btn-primary" ng-click="login()">立即登录</button>
         </div>
     </script>
 

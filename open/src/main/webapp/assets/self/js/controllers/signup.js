@@ -21,14 +21,22 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', '$modal', f
             }
         });
     };
-    $scope.signup = function () {
+    $scope.register = function () {
+        var registerUser = $scope.user;
         $scope.authError = null;
         // Try to create
-        $http.post(api("/auth/register.html"), $scope.user)
+        $http.post(api("/auth/register.html"), registerUser)
             .then(function (response) {
                 if (response.data.errcode == 0) {
                     $modal.open({
-                        templateUrl: 'registerSuccess.html'
+                        templateUrl: 'registerSuccess.html',
+                        controller: function ($scope, $modalInstance) {
+                            $scope.registered = registerUser.username;
+                            $scope.login = function () {
+                                $modalInstance.close();
+                                $state.go('access.signin');
+                            };
+                        }
                     });
                 } else {
                     $scope.authError = response.data.errmsg;
