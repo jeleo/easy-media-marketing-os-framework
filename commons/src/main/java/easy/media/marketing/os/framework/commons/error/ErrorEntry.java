@@ -39,4 +39,6 @@ public class ErrorEntry {
     public final static ErrorInfo e10008 = new ErrorInfo(ErrorString.e10008);
 
     public final static ErrorInfo e10009 = new ErrorInfo(ErrorString.e10009);
+
+    public final static ErrorInfo e10010 = new ErrorInfo(ErrorString.e10010);
 }

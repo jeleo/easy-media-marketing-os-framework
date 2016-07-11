@@ -5,10 +5,25 @@
  */
 angular.module('app')
     .run(
-    ['$rootScope', '$state', '$stateParams',
-        function ($rootScope, $state, $stateParams) {
+    ['$rootScope', '$state', '$stateParams', 'UserAuthentication',
+        function ($rootScope, $state, $stateParams, UserAuthentication) {
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
+            $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
+                if (toState.name.indexOf("access") != -1) {
+                    return;
+                }
+                var promise = UserAuthentication.isAuthenticated();
+                promise.then(function(data) {
+                    if (data.errcode == 10010) {
+                        // 取消默认跳转行为
+                        event.preventDefault();
+                        $state.go('access.signin');
+                    }
+                }, function(data) { // 处理错误 .reject
+                    console.log("err " + data);
+                });
+            });
         }
     ]
 )

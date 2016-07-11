@@ -25,7 +25,7 @@ app.controller('SignupFormController', ['$scope', '$http', '$state', '$modal', f
         var registerUser = $scope.user;
         $scope.authError = null;
         // Try to create
-        $http.post(api("/auth/register.html"), registerUser)
+        $http.post(api("/auth/register,json"), registerUser)
             .then(function (response) {
                 if (response.data.errcode == 0) {
                     $modal.open({

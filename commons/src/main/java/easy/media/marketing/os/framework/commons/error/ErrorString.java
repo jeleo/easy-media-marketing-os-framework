@@ -36,4 +36,6 @@ public class ErrorString {
 
     public final static String e10009 = "10009, 账户已被禁用";
 
+    public final static String e10010 = "10010, 用户未登录";
+
 }

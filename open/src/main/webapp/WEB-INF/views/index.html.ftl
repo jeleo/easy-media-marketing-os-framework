@@ -63,6 +63,7 @@
 <script src="${base}/assets/self/js/app.js"></script>
 <script src="${base}/assets/self/js/config.js"></script>
 <script src="${base}/assets/self/js/config.lazyload.js"></script>
+<script src="${base}/assets/self/js/factories/globalService.js"></script>
 <script src="${base}/assets/self/js/config.router.js"></script>
 <script src="${base}/assets/self/js/main.js"></script>
 <script src="${base}/assets/self/js/services/ui-load.js"></script>

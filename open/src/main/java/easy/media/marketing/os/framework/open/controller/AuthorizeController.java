@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/auth")
@@ -20,7 +21,7 @@ public class AuthorizeController extends ControllerBus {
 
     private static Logger logger = LoggerFactory.getLogger(AuthorizeController.class);
 
-    @RequestMapping(value = "/register.html", method = RequestMethod.POST)
+    @RequestMapping(value = "/register.json", method = RequestMethod.POST)
     public Object doRegister(@RequestBody @Valid Register register, BindingResult registerErrors, HttpSession session) {
 
         if(registerErrors.hasErrors()) {
@@ -52,6 +53,11 @@ public class AuthorizeController extends ControllerBus {
         }
 
         return OpenErrorEntry.e00000;
+    }
+
+    @RequestMapping(value = "/isAuthenticated.json", method = RequestMethod.GET)
+    public Object isAuthenticated(Principal pricinpal) {
+        return pricinpal == null ? OpenErrorEntry.e10010 : OpenErrorEntry.e00000;
     }
 
     @Autowired
