@@ -31,7 +31,7 @@ angular.module('app')
     ['$stateProvider', '$urlRouterProvider', 'JQ_CONFIG', 'MODULE_CONFIG',
         function ($stateProvider, $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG) {
             var layout = "views/app.html";
-            $urlRouterProvider.otherwise('/access/signin');
+            $urlRouterProvider.otherwise('/access/404');
             $stateProvider
                 .state('app', {
                     abstract: true,
