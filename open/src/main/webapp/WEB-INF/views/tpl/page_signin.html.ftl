@@ -14,15 +14,15 @@
             </div>
             <div class="list-group list-group-sm">
                 <div class="list-group-item">
-                    <input type="text" placeholder="用户名" class="form-control no-border" name="username" ng-model="username" required>
+                    <input type="text" placeholder="用户名" class="form-control no-border" name="username" ng-model="user.username" required>
                 </div>
                 <div class="list-group-item">
-                    <input type="password" placeholder="密&emsp;码" class="form-control no-border" name="password" ng-model="password" required>
+                    <input type="password" placeholder="密&emsp;码" class="form-control no-border" name="password" ng-model="user.password" required>
                 </div>
                 <div class="list-group-item">
                     <div class="row">
                         <div class="col-xs-7 col-sm-7 col-md-7">
-                            <input type="text" placeholder="验证码" class="form-control no-border" name="captcha" ng-model="captcha" required>
+                            <input type="text" placeholder="验证码" class="form-control no-border" name="captcha" ng-model="user.captcha" required>
                         </div>
                         <div class="col-xs-5 col-sm-5 col-md-5">
                             <img style="cursor: pointer;" ng-src="{{captchaUrl}}" ng-click="refresh()" />
