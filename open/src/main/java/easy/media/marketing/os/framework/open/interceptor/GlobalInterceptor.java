@@ -25,7 +25,7 @@ public class GlobalInterceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         // 登录状态下设置用户名
         Principal principal = request.getUserPrincipal();
-        if (principal != null) {
+        if (principal != null && modelAndView != null) {
             modelAndView.addObject("username", principal.getName());
         }
     }
