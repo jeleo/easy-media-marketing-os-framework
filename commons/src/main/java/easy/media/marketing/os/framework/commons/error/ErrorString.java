@@ -13,6 +13,8 @@ public class ErrorString {
 
     public final static String e00001 = "1, 系统异常";
 
+    public final static String e00002 = "2, 参数不合法";
+
     /**
      * 通用的业务错误
      * */
@@ -37,5 +39,7 @@ public class ErrorString {
     public final static String e10009 = "10009, 账户已被禁用";
 
     public final static String e10010 = "10010, 用户未登录";
+
+    public final static String e10011 = "10011, 用户名或密码错误";
 
 }

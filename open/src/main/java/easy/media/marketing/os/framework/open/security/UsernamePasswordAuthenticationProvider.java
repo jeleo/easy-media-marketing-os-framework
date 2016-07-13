@@ -1,5 +1,6 @@
 package easy.media.marketing.os.framework.open.security;
 
+import easy.media.marketing.os.framework.commons.error.ErrorString;
 import easy.media.marketing.os.framework.open.entity.OpenUser;
 import easy.media.marketing.os.framework.open.service.OpenUserService;
 import org.apache.commons.lang3.StringUtils;
@@ -24,7 +25,7 @@ public class UsernamePasswordAuthenticationProvider extends AbstractUserDetailsA
         String password = String.valueOf(authentication.getCredentials());
         OpenUser openUser = openUserService.loginByUsername(username, password);
         if (openUser == null) {
-            throw new AuthenticationServiceException("用户名或密码错误");
+            throw new AuthenticationServiceException(ErrorString.e10011);
         }
         return new SecurityUser(openUser);
     }

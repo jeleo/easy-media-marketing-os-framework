@@ -17,6 +17,8 @@ public class ErrorEntry {
 
     public final static ErrorInfo e00001 = new ErrorInfo(ErrorString.e00001);
 
+    public final static ErrorInfo e00002 = new ErrorInfo(ErrorString.e00002);
+
     /**
      * 通用的业务错误
      * */
@@ -41,4 +43,6 @@ public class ErrorEntry {
     public final static ErrorInfo e10009 = new ErrorInfo(ErrorString.e10009);
 
     public final static ErrorInfo e10010 = new ErrorInfo(ErrorString.e10010);
+
+    public final static ErrorInfo e10011 = new ErrorInfo(ErrorString.e10011);
 }
