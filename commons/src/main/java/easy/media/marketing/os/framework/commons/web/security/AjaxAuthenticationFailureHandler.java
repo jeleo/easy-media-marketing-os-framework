@@ -20,11 +20,11 @@ import java.io.IOException;
 public class AjaxAuthenticationFailureHandler implements AuthenticationFailureHandler {
 
     @Override
-    public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-        httpServletResponse.setHeader("Content-Type", "application/json;charset=UTF-8");
+    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+        response.setHeader("Content-Type", "application/json;charset=UTF-8");
         ObjectMapper objectMapper = new ObjectMapper();
-        JsonGenerator jsonGenerator = objectMapper.getJsonFactory().createJsonGenerator(httpServletResponse.getOutputStream(), JsonEncoding.UTF8);
-        objectMapper.writeValue(jsonGenerator, ErrorEntry.build(e.getMessage()));
+        JsonGenerator jsonGenerator = objectMapper.getJsonFactory().createJsonGenerator(response.getOutputStream(), JsonEncoding.UTF8);
+        objectMapper.writeValue(jsonGenerator, ErrorEntry.build(exception.getMessage()));
     }
 
 }

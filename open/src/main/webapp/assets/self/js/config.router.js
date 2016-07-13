@@ -36,7 +36,8 @@ angular.module('app')
                 .state('app', {
                     abstract: true,
                     url: '/app',
-                    templateUrl: layout
+                    templateUrl: layout,
+                    resolve: load( ['js/controllers/nav.js'] )
                 })
                 .state('app.dashboard', {
                     url: '/dashboard',

@@ -110,7 +110,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a ui-sref="access.signin">退出</a>
+                    <a ng-click="logout()">退出</a>
                 </li>
             </ul>
             <!-- / dropdown -->

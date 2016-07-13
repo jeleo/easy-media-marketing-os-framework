@@ -1,7 +1,7 @@
 <#import "/spring.ftl" as spring />
 <#assign base = "${rc.contextPath}">
 <!-- navbar -->
-<div data-ng-include=" 'views/header.html' " class="app-header navbar">
+<div ng-controller="NavController" data-ng-include=" 'views/header.html' " class="app-header navbar">
 </div>
 <!-- / navbar -->
 
