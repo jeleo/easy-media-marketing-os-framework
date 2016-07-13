@@ -1,7 +1,7 @@
 <#import "/spring.ftl" as spring />
 <#assign base = "${rc.contextPath}">
 <div class="container w-xxl w-auto-xs" ng-controller="SignupFormController" ng-init="app.settings.container = false; captchaUrl = '${base}/captcha.html?type=register'">
-    <a href class="navbar-brand block m-t">{{app.name}}</a>
+    <div class="navbar-brand block m-t">{{app.name}}</div>
 
     <div class="m-b-lg">
         <div class="wrapper text-center">

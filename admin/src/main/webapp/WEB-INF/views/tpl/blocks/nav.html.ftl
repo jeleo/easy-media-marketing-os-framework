@@ -20,7 +20,7 @@
     <li ui-sref-active="active">
         <a href="#">
             <i class="fa fa-user text-primary-lter"></i>
-            <span>管理员列表</span>
+            <span>管理员</span>
         </a>
     </li>
     <li ui-sref-active="active">
