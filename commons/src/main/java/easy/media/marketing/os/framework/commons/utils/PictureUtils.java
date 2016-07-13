@@ -18,7 +18,7 @@ import javax.imageio.ImageIO;
  *
  * Created by jeleo on 2015/12/16.
  */
-public class PictureUtil {
+public class PictureUtils {
 
     /** 图片格式：JPG */
     public static final String PICTRUE_FORMATE_JPG = "jpg";
@@ -33,7 +33,7 @@ public class PictureUtil {
     /** 图片大小限制(10M) */
     public static final long PICTRUE_MAX_SIZE = 10*1024*1024L;
 
-    private PictureUtil() {
+    private PictureUtils() {
     }
     /**
      * 添加图片水印

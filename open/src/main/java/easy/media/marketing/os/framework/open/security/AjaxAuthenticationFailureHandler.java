@@ -1,9 +1,7 @@
-package easy.media.marketing.os.framework.commons.web.security;
+package easy.media.marketing.os.framework.open.security;
 
 import easy.media.marketing.os.framework.commons.error.ErrorEntry;
-import org.codehaus.jackson.JsonEncoding;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.map.ObjectMapper;
+import easy.media.marketing.os.framework.commons.utils.HttpServletUtils;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
@@ -21,10 +19,7 @@ public class AjaxAuthenticationFailureHandler implements AuthenticationFailureHa
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-        response.setHeader("Content-Type", "application/json;charset=UTF-8");
-        ObjectMapper objectMapper = new ObjectMapper();
-        JsonGenerator jsonGenerator = objectMapper.getJsonFactory().createJsonGenerator(response.getOutputStream(), JsonEncoding.UTF8);
-        objectMapper.writeValue(jsonGenerator, ErrorEntry.build(exception.getMessage()));
+        HttpServletUtils.writeJson(response, ErrorEntry.build(exception.getMessage()));
     }
 
 }

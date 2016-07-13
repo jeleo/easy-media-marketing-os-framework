@@ -3,8 +3,6 @@ package easy.media.marketing.os.framework.admin.security;
 import easy.media.marketing.os.framework.admin.model.Login;
 import easy.media.marketing.os.framework.commons.error.ErrorString;
 import easy.media.marketing.os.framework.commons.utils.Captcha;
-import easy.media.marketing.os.framework.commons.web.security.AjaxAuthenticationFailureHandler;
-import easy.media.marketing.os.framework.commons.web.security.AjaxAuthenticationSuccessHandler;
 import org.apache.commons.lang3.StringUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -94,7 +94,7 @@ public class Captcha {
 
         // 输出图象到页面
         try {
-            ImageIO.write(image, PictureUtil.PICTRUE_FORMATE_JPG, response.getOutputStream());
+            ImageIO.write(image, PictureUtils.PICTRUE_FORMATE_JPG, response.getOutputStream());
         } catch (IOException e) {
             logger.error("输入验证码失败", e);
         }
