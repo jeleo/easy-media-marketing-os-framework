@@ -49,7 +49,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/auth/**", "/captcha.html", "/index.html**", "/views/**").permitAll()
                 .anyRequest().authenticated()
-//                .anyRequest().permitAll()
                 .and()
                 .addFilterBefore(userLogoutFilter, LogoutFilter.class)
                 .addFilterBefore(usernamePasswordCaptchaAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)

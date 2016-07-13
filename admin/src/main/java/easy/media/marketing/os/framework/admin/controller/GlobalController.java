@@ -20,17 +20,13 @@ public class GlobalController extends ControllerBus {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public Object toWhere(Principal pricinpal, ModelMap model) {
-        if (pricinpal != null) {
-            return PATH_REDIRECT_DASHBOARD;
-        } else {
-            return PATH_REDIRECT_LOGIN;
-        }
+    public String toWhere() {
+        return super.redirect(VIEW_DEFAULT);
     }
 
-    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
+    @RequestMapping(value = VIEW_DEFAULT, method = RequestMethod.GET)
     public String toIndex() {
-        return PATH_DASHBOARD;
+        return VIEW_DEFAULT;
     }
 
     @RequestMapping(value = "/captcha.html", method = RequestMethod.GET)

@@ -24,7 +24,7 @@ public class GlobalInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         Principal principal = request.getUserPrincipal();
-        if (principal != null) {
+        if (principal != null && modelAndView != null) {
             modelAndView.addObject("username", principal.getName());
         }
     }

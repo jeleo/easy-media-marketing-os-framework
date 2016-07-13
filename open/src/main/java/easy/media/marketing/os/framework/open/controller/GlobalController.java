@@ -22,12 +22,7 @@ public class GlobalController extends ControllerBus {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String toWhere(Principal pricinpal, ModelMap model) {
-//        if (pricinpal != null) {
-//            return PATH_REDIRECT_DASHBOARD;
-//        } else {
-//            return VIEW_DEFAULT;
-//        }
+    public String toWhere() {
         return super.redirect(VIEW_DEFAULT);
     }
 

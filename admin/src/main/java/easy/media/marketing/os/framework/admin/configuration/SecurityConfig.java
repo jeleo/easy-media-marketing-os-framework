@@ -4,6 +4,7 @@ import easy.media.marketing.os.framework.admin.security.AdminLogoutFilter;
 import easy.media.marketing.os.framework.admin.security.Securities;
 import easy.media.marketing.os.framework.admin.security.UsernamePasswordAuthenticationProvider;
 import easy.media.marketing.os.framework.admin.security.UsernamePasswordCaptchaAuthenticationFilter;
+import easy.media.marketing.os.framework.commons.web.filter.CsrfHeaderFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,6 +20,9 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -43,11 +47,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(authenticationEntryPoint())
                 .and()
                 .authorizeRequests()
-                .antMatchers("/auth/**", "/captcha.html").permitAll()
+                .antMatchers("/auth/**", "/captcha.html", "/index.html**", "/views/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(adminLogoutFilter, LogoutFilter.class)
-                .addFilterBefore(usernamePasswordCaptchaAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(usernamePasswordCaptchaAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
+                .csrf().csrfTokenRepository(csrfTokenRepository());
     }
 
     @Bean(name = "authenticationManager")
@@ -59,6 +65,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public AuthenticationEntryPoint authenticationEntryPoint() {
         return new LoginUrlAuthenticationEntryPoint(Securities.loginFormUrl);
+    }
+
+    @Bean
+    public CsrfTokenRepository csrfTokenRepository() {
+        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+        repository.setHeaderName("X-XSRF-TOKEN");
+        return repository;
     }
 
     @Autowired
