@@ -33,8 +33,8 @@ public class UsernamePasswordCaptchaAuthenticationFilter extends UsernamePasswor
         String authType = request.getHeader("AuthType");
         String username, password, captcha;
         if (StringUtils.equals(authType, "ajax")) {
-            super.setAuthenticationSuccessHandler(new AjaxAuthenticationSuccessHandler());
-            super.setAuthenticationFailureHandler(new AjaxAuthenticationFailureHandler());
+            super.setAuthenticationSuccessHandler(ajaxAuthenticationSuccessHandler);
+            super.setAuthenticationFailureHandler(ajaxAuthenticationFailureHandler);
 
             try {
                 Login login = new ObjectMapper().readValue(request.getInputStream(), Login.class);
@@ -88,5 +88,11 @@ public class UsernamePasswordCaptchaAuthenticationFilter extends UsernamePasswor
 
     @Autowired
     private AdminLoginHandler adminLoginHandler;
+
+    @Autowired
+    private AjaxAuthenticationSuccessHandler ajaxAuthenticationSuccessHandler;
+
+    @Autowired
+    private AjaxAuthenticationFailureHandler ajaxAuthenticationFailureHandler;
 
 }

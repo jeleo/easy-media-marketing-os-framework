@@ -4,6 +4,7 @@ import easy.media.marketing.os.framework.commons.error.ErrorEntry;
 import easy.media.marketing.os.framework.commons.utils.HttpServletUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import java.io.IOException;
  *
  * Created by jeleo on 16-7-12.
  */
+@Component
 public class AjaxAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
     @Override

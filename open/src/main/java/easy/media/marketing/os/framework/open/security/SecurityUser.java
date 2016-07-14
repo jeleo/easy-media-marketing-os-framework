@@ -13,10 +13,14 @@ public class SecurityUser extends User{
 
     public SecurityUser(OpenUser loginUser) {
         super(loginUser.getUsername(), loginUser.getPassword(), loginUser.getEnabled().value, true, true, true, new ArrayList<GrantedAuthority>());
+        this.setLoginUser(loginUser);
     }
 
     public OpenUser getLoginUser() {
         return loginUser;
     }
 
- }
+    public void setLoginUser(OpenUser loginUser) {
+        this.loginUser = loginUser;
+    }
+}
