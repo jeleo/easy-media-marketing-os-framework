@@ -37,7 +37,7 @@ angular.module('app')
                     abstract: true,
                     url: '/mgmt',
                     templateUrl: layout,
-                    resolve: load( ['js/controllers/nav.js'] )
+                    resolve: load( ['js/controllers/nav.js', 'js/controllers/menu.js'] )
                 })
                 .state('mgmt.dashboard', {
                     url: '/dashboard',
@@ -62,7 +62,6 @@ angular.module('app')
                 });
 
             function load(srcs, callback) {
-                srcs = context_path + '/assets/self/' + srcs;
                 return {
                     deps: ['$ocLazyLoad', '$q',
                         function ($ocLazyLoad, $q) {
@@ -73,6 +72,7 @@ angular.module('app')
                                 promise = deferred.promise;
                             }
                             angular.forEach(srcs, function (src) {
+                                src = context_path + '/assets/self/' + src;
                                 promise = promise.then(function () {
                                     if (JQ_CONFIG[src]) {
                                         return $ocLazyLoad.load(JQ_CONFIG[src]);
