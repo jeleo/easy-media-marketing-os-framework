@@ -1,5 +1,9 @@
 package easy.media.marketing.os.framework.commons.utils;
 
+import eu.bitwalker.useragentutils.Browser;
+import eu.bitwalker.useragentutils.OperatingSystem;
+import eu.bitwalker.useragentutils.UserAgent;
+import eu.bitwalker.useragentutils.Version;
 import org.apache.commons.lang3.StringUtils;
 import org.codehaus.jackson.JsonEncoding;
 import org.codehaus.jackson.JsonGenerator;
@@ -13,6 +17,8 @@ import java.io.IOException;
  * Created by jeleo on 16-7-13.
  */
 public class HttpServletUtils {
+
+    private final static String USERAGENT_DESCRIPTION_FORMAT = "%s(%s);%s";
 
     public static void writeJson(HttpServletResponse response, Object value) throws IOException {
         response.setHeader("Content-Type", "application/json;charset=UTF-8");
@@ -53,6 +59,21 @@ public class HttpServletUtils {
             }
         }
         return ip;
+    }
+
+    public static UserAgent parseUserAgent(HttpServletRequest request) {
+        return UserAgent.parseUserAgentString(request.getHeader("User-Agent"));
+    }
+
+    public static String explainUserAgent(UserAgent userAgent) {
+        Browser browser = userAgent.getBrowser();
+        Version browserVersion = userAgent.getBrowserVersion();
+        OperatingSystem os = userAgent.getOperatingSystem();
+        return String.format(USERAGENT_DESCRIPTION_FORMAT, browser.getName(), browserVersion.getVersion(), os.getName());
+    }
+
+    public static String explainUserAgent(HttpServletRequest request) {
+        return explainUserAgent(parseUserAgent(request));
     }
 
 }

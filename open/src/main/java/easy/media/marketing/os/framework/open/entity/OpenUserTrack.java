@@ -20,7 +20,7 @@ public class OpenUserTrack {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "UID", unique = true, nullable = false)
+    @Column(name = "UID", nullable = false)
     private String uid;
 
     @Column(name = "IP")

@@ -156,11 +156,6 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			<dependency>
-				<groupId>eu.bitwalker</groupId>
-				<artifactId>UserAgentUtils</artifactId>
-				<version>1.19</version>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>

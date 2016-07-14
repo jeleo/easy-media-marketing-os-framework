@@ -24,7 +24,7 @@ public class AjaxAuthenticationSuccessHandler implements AuthenticationSuccessHa
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         SecurityUser authenticatedUser = (SecurityUser) authentication.getPrincipal();
-        openUserTrackService.create(authenticatedUser.getLoginUser().getUid(), HttpServletUtils.getIpAddress(request), request.getHeader("User-Agent"));
+        openUserTrackService.create(authenticatedUser.getLoginUser().getUid(), HttpServletUtils.getIpAddress(request), HttpServletUtils.explainUserAgent(request));
         HttpServletUtils.writeJson(response, ErrorEntry.e00000);
     }
 

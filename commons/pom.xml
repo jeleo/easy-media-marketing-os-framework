@@ -7,9 +7,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>commons</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <properties>
-        <project.contextPath>/admin</project.contextPath>
         <depdump.dir>${project.parent.build.directory}/dependencies</depdump.dir>
     </properties>
     <dependencies>
@@ -87,9 +86,9 @@
             <artifactId>freemarker-template-inheritance</artifactId>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>commons</artifactId>
-            <version>${project.version}</version>
+            <groupId>eu.bitwalker</groupId>
+            <artifactId>UserAgentUtils</artifactId>
+            <version>1.20</version>
         </dependency>
     </dependencies>
 </project>
