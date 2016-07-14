@@ -1,7 +1,6 @@
 package easy.media.marketing.os.framework.open.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -75,14 +74,12 @@ public class ViewController extends ControllerBus {
     }
 
     @RequestMapping(value = VIEW_WEIXIN_ADD, method = RequestMethod.GET)
-    public String toWeixinAdd(ModelMap model) {
-        model.addAttribute("isAdd", true);
+    public String toWeixinAdd() {
         return page(VIEW_WEIXIN_SETUP);
     }
 
     @RequestMapping(value = VIEW_WEIXIN_EDIT, method = RequestMethod.GET)
-    public String toWeixinEdit(ModelMap model) {
-        model.addAttribute("isAdd", false);
+    public String toWeixinEdit() {
         return page(VIEW_WEIXIN_SETUP);
     }
 
