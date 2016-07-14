@@ -16,7 +16,7 @@
         <span>我的渠道</span>
     </li>
     <li ui-sref-active="active">
-        <a href="#">
+        <a ui-sref="app.weixin.list">
             <i class="fa fa-weixin text-success-lter"></i>
             <span>微信公众号</span>
         </a>

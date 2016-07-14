@@ -64,6 +64,26 @@ angular.module('app')
                 .state('access.404', {
                     url: '/404',
                     templateUrl: 'views/page_404.html'
+                })
+                // pages
+                .state('app.weixin', {
+                    url: '/weixin',
+                    template: '<div ui-view class="fade-in-down"></div>'
+                })
+                .state('app.weixin.list', {
+                    url: '/list',
+                    templateUrl: 'views/page_weixin_list.html',
+                    resolve: load( ['js/controllers/weixin/list.js'] )
+                })
+                .state('app.weixin.add', {
+                    url: '/add',
+                    templateUrl: 'views/page_weixin_add.html',
+                    resolve: load( ['js/controllers/weixin/setup.js'] )
+                })
+                .state('app.weixin.edit', {
+                    url: '/edit',
+                    templateUrl: 'views/page_weixin_edit.html',
+                    resolve: load( ['js/controllers/weixin/setup.js'] )
                 });
 
             function load(srcs, callback) {

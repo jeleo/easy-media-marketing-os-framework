@@ -25,5 +25,9 @@ public interface Controllers {
     String VIEW_LOGIN = "/page_signin.html";
     String VIEW_REGISTER = "/page_signup.html";
     String VIEW_FORGOTPWD = "/page_forgotpwd.html";
+    String VIEW_WEIXIN_LIST = "/page_weixin_list.html";
+    String VIEW_WEIXIN_SETUP = "/page_weixin_setup.html";
+    String VIEW_WEIXIN_ADD = "/page_weixin_add.html";
+    String VIEW_WEIXIN_EDIT = "/page_weixin_edit.html";
 
 }
