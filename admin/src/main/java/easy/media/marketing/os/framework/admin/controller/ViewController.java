@@ -43,6 +43,11 @@ public class ViewController extends ControllerBus {
         return layout(VIEW_NAV);
     }
 
+    @RequestMapping(value = VIEW_SETTINGS, method = RequestMethod.GET)
+    public String toSettings() {
+        return layout(VIEW_SETTINGS);
+    }
+
     @RequestMapping(value = VIEW_DASHBOARD, method = RequestMethod.GET)
     public String toDashboard() {
         return page(VIEW_DASHBOARD);

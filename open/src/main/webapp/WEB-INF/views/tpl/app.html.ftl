@@ -31,5 +31,5 @@
 </div>
 <!-- / footer -->
 
-<div data-ng-include=" 'tpl/blocks/settings.html' " class="settings panel panel-default">
+<div data-ng-include=" 'views/settings.html' " class="settings panel panel-default">
 </div>

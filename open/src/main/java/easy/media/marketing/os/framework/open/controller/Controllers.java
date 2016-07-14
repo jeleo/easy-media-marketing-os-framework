@@ -20,6 +20,7 @@ public interface Controllers {
     String VIEW_HEADER = "/header.html";
     String VIEW_ASIDE = "/aside.html";
     String VIEW_NAV = "/nav.html";
+    String VIEW_SETTINGS = "/settings.html";
     String VIEW_DASHBOARD = "/app_dashboard.html";
     String VIEW_LOGIN = "/page_signin.html";
     String VIEW_REGISTER = "/page_signup.html";
