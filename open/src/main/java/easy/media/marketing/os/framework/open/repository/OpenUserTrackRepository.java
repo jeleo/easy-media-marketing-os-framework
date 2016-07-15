@@ -15,12 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
  */
 public interface OpenUserTrackRepository extends JpaRepository<OpenUserTrack, Long> {
 
-    @Query("SELECT e FROM OpenUserTrack e WHERE e.uid = :uid")
-    OpenUserTrack getOneByUid(@Param("uid")String uid);
+    @Query("SELECT e FROM OpenUserTrack e WHERE e.userUid = :userUid")
+    OpenUserTrack getOneByUserUid(@Param("userUid")String userUid);
 
     @Transactional
     @Modifying
-    @Query("DELETE FROM OpenUserTrack e WHERE e.uid = :uid")
-    void deleteByUid(@Param("uid")String uid);
+    @Query("DELETE FROM OpenUserTrack e WHERE e.userUid = :userUid")
+    void deleteByUserUid(@Param("userUid")String userUid);
 
 }

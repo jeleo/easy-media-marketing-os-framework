@@ -20,8 +20,8 @@ public class OpenUserTrack {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "UID", nullable = false)
-    private String uid;
+    @Column(name = "USER_UID", nullable = false)
+    private String userUid;
 
     @Column(name = "IP")
     private String ip;
@@ -41,12 +41,12 @@ public class OpenUserTrack {
         this.id = id;
     }
 
-    public String getUid() {
-        return uid;
+    public String getUserUid() {
+        return userUid;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setUserUid(String userUid) {
+        this.userUid = userUid;
     }
 
     public String getIp() {
@@ -72,5 +72,4 @@ public class OpenUserTrack {
     public void setLoginDate(Long loginDate) {
         this.loginDate = loginDate;
     }
-
 }

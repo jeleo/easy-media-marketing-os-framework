@@ -20,8 +20,8 @@ public class WeixinApiToken {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "CHANNEL_UID", unique = true, nullable = false)
-    private String channelUid;
+    @Column(name = "CHANNEL_ID", unique = true, nullable = false)
+    private String channelId;
 
     @Column(name = "ACCESS_TOKEN", nullable = false)
     private String accessToken;
@@ -38,12 +38,12 @@ public class WeixinApiToken {
         this.id = id;
     }
 
-    public String getChannelUid() {
-        return channelUid;
+    public String getChannelId() {
+        return channelId;
     }
 
-    public void setChannelUid(String channelUid) {
-        this.channelUid = channelUid;
+    public void setChannelId(String channelId) {
+        this.channelId = channelId;
     }
 
     public String getAccessToken() {

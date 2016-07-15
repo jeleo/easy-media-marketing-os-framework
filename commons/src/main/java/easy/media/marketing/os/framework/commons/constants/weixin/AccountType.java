@@ -1,5 +1,7 @@
 package easy.media.marketing.os.framework.commons.constants.weixin;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * 公众号类型
  *
@@ -12,6 +14,15 @@ public enum AccountType {
 
     AccountType(String value) {
         this.value = value;
+    }
+
+    public static AccountType match(String value) {
+        for (AccountType accountType : AccountType.values()) {
+            if (StringUtils.equals(accountType.value, value)) {
+                return accountType;
+            }
+        }
+        throw new IllegalArgumentException(String.format("未能使用 %s 找到对应的枚举对象", value));
     }
 
     public String value;

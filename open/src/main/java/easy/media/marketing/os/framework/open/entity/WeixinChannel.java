@@ -20,17 +20,13 @@ import java.util.UUID;
 @Table(name = "EMM_OPEN_WEIXIN_CHANNEL")
 public class WeixinChannel {
 
-    public WeixinChannel() {
-        this.setUid(UUID.randomUUID().toString());
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "UID", unique = true, nullable = false)
-    private String uid;
+    @Column(name = "USER_UID", unique = true, nullable = false)
+    private String userUid;
 
     @Column(name = "NAME", nullable = false)
     private String name;
@@ -54,7 +50,7 @@ public class WeixinChannel {
     @Column(name = "COMMENT", nullable = true)
     private String comment;
 
-    @Column(name = "CALLBACK", nullable = false)
+    @Column(name = "CALLBACK", unique = true, nullable = false)
     private String callback;
 
     @Column(name = "token", nullable = false)
@@ -84,12 +80,12 @@ public class WeixinChannel {
         this.id = id;
     }
 
-    public String getUid() {
-        return uid;
+    public String getUserUid() {
+        return userUid;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setUserUid(String userUid) {
+        this.userUid = userUid;
     }
 
     public String getName() {

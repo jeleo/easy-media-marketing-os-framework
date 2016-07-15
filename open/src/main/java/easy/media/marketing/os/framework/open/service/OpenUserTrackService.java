@@ -9,6 +9,6 @@ import easy.media.marketing.os.framework.open.entity.OpenUserTrack;
  */
 public interface OpenUserTrackService {
 
-    OpenUserTrack create(String uid, String ip, String agent);
+    OpenUserTrack create(String userUid, String ip, String agent);
 
 }

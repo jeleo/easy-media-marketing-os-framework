@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 public class OpenUserTrackServiceImpl implements OpenUserTrackService {
 
     @Override
-    public OpenUserTrack create(String uid, String ip, String agent) {
+    public OpenUserTrack create(String userUid, String ip, String agent) {
         OpenUserTrack openUserTrack = new OpenUserTrack();
-        openUserTrack.setUid(uid);
+        openUserTrack.setUserUid(userUid);
         openUserTrack.setIp(ip);
         openUserTrack.setAgent(agent);
         return openUserTrackRepository.save(openUserTrack);
