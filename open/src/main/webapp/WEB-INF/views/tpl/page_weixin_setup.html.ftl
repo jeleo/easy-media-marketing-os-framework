@@ -57,21 +57,12 @@
                 <div class="form-group">
                     <label class="col-lg-4 control-label">公众号类型</label>
                     <div class="col-lg-8">
-                        <div class="input-group">
-                            <ui-select ng-model="type.selected" theme="bootstrap">
-                                <ui-select-match placeholder="选择公众号类型">{{$select.selected.name}}</ui-select-match>
-                                <ui-select-choices repeat="item in types | filter: $select.search">
-                                    <span ng-bind-html="item.name | highlight: $select.search"></span>
-                                    <small ng-bind-html="item.value | highlight: $select.search"></small>
-                                </ui-select-choices>
-                            </ui-select>
-                            <span class="input-group-btn">
-                                <button ng-click="type.selected = undefined" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </button>
-                            </span>
-
-                        </div>
+                        <ui-select ng-model="type.selected" theme="bootstrap">
+                            <ui-select-match placeholder="-- 请选择 --">{{$select.selected.name}}</ui-select-match>
+                            <ui-select-choices repeat="item in types | filter: $select.search">
+                                <div ng-bind-html="item.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
                     </div>
                 </div>
                 <div class="form-group">
