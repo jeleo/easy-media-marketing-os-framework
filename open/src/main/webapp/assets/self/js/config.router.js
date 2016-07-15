@@ -79,7 +79,7 @@ angular.module('app')
                 .state('app.weixin.add', {
                     url: '/add',
                     templateUrl: 'views/page_weixin_add.html',
-                    resolve: load( ['js/controllers/weixin/setup.js'] )
+                    resolve: load( ['ui.select', 'js/controllers/weixin/setup.js'] )
                 })
                 .state('app.weixin.edit', {
                     url: '/edit',
@@ -98,17 +98,18 @@ angular.module('app')
                                 promise = deferred.promise;
                             }
                             angular.forEach(srcs, function (src) {
-                                src = context_path + '/assets/self/' + src;
                                 promise = promise.then(function () {
                                     if (JQ_CONFIG[src]) {
                                         return $ocLazyLoad.load(JQ_CONFIG[src]);
                                     }
-                                    var name;
+                                    var name = context_path + '/assets/self/' + src;
+                                    var keepGoing = true;
                                     angular.forEach(MODULE_CONFIG, function (module) {
-                                        if (module.name == src) {
-                                            name = module.name;
-                                        } else {
-                                            name = src;
+                                        if (keepGoing) {
+                                            if (module.name == src) {
+                                                name = module.name;
+                                                keepGoing = false;
+                                            }
                                         }
                                     });
                                     return $ocLazyLoad.load(name);
