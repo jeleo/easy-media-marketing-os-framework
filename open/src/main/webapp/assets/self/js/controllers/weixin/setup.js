@@ -9,8 +9,8 @@ app.controller('WeixinSetupController', ['$scope', '$http', '$state', '$location
         $state.go("app.weixin.list");
     };
     $scope.types = [
-        {name : "服务号", value : "fuwu"},
-        {name : "订阅号", value : "dingyue"}
+        {name : "服务号", value : "service"},
+        {name : "订阅号", value : "subscription"}
     ];
     $scope.type = "";
 }]);
