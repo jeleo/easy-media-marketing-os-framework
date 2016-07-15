@@ -18,7 +18,7 @@ angular.module('app')
                     if (data.errcode == 10010) {
                         // 取消默认跳转行为
                         event.preventDefault();
-                        $state.go('access.signin');
+                        $state.go('access.signin', {from: fromState.name});
                     }
                 }, function(data) { // 处理错误 .reject
                     console.log("err " + data);
@@ -48,6 +48,7 @@ angular.module('app')
                     template: '<div ui-view class="fade-in-right-big smooth"></div>'
                 })
                 .state('access.signin', {
+                    params:{'from': null},
                     url: '/signin',
                     templateUrl: 'views/page_signin.html',
                     resolve: load( ['js/controllers/signin.js'] )

@@ -2,7 +2,7 @@
 
 /* Controllers */
 // signin controller
-app.controller('SigninFormController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+app.controller('SigninFormController', ['$scope', '$http', '$state', '$stateParams', function ($scope, $http, $state, $stateParams) {
     $scope.user = {};
     $scope.authError = null;
     $scope.refresh = function () {
@@ -21,7 +21,8 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', function ($
             })
             .then(function (response) {
                 if (response.data.errcode == 0) {
-                    $state.go('app.dashboard');
+                    var from = $stateParams.from;
+                    $state.go(from && from != null && from != 'access.signin' ? from : 'app.dashboard');
                 } else {
                     $scope.authError = response.data.errmsg;
                 }
