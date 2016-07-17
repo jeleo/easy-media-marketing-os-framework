@@ -9,10 +9,11 @@ import org.apache.commons.lang3.StringUtils;
  */
 public enum AccountType {
 
-    SERVICE("service"),
-    SUBSCRIPTION("subscription");
+    SERVICE("服务号", "service"),
+    SUBSCRIPTION("订阅号", "subscription");
 
-    AccountType(String value) {
+    AccountType(String display, String value) {
+        this.display = display;
         this.value = value;
     }
 
@@ -25,6 +26,7 @@ public enum AccountType {
         throw new IllegalArgumentException(String.format("未能使用 %s 找到对应的枚举对象", value));
     }
 
+    public String display;
     public String value;
 
 }

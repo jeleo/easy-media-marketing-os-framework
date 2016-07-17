@@ -2,7 +2,11 @@ package easy.media.marketing.os.framework.open.controller;
 
 import easy.media.marketing.os.framework.commons.error.ErrorEntry;
 import easy.media.marketing.os.framework.commons.error.ErrorInfo;
+import easy.media.marketing.os.framework.open.entity.OpenUser;
+import easy.media.marketing.os.framework.open.security.SecurityUser;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.FieldError;
 
 import javax.servlet.http.HttpServletRequest;
@@ -47,6 +51,17 @@ public abstract class ControllerBus implements Controllers {
     protected ErrorInfo convert(List<FieldError> fieldErrors) {
         // 暂时只处理一条错误提示
         return ErrorEntry.build(fieldErrors.get(0).getDefaultMessage());
+    }
+
+    protected OpenUser getFromSession() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated()) {
+            Object principal = authentication.getPrincipal();
+            if (principal instanceof SecurityUser) {
+                return ((SecurityUser) principal).getLoginUser();
+            }
+        }
+        throw new NullPointerException("未找到当前登录用户");
     }
 
 }
