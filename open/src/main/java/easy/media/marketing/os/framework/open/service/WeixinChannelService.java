@@ -22,4 +22,6 @@ public interface WeixinChannelService {
 
     String resetToken(Long id);
 
+    WeixinChannel getOneById(Long id);
+
 }

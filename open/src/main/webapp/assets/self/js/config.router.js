@@ -82,7 +82,7 @@ angular.module('app')
                     resolve: load( ['ui.select', 'js/controllers/weixin/setup.js'] )
                 })
                 .state('app.weixin.edit', {
-                    url: '/edit',
+                    url: '/edit?id',
                     templateUrl: 'views/page_weixin_edit.html',
                     resolve: load( ['js/controllers/weixin/setup.js'] )
                 });

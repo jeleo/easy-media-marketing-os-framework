@@ -15,7 +15,7 @@
                             <div class="btn-group dropdown">
                                 <button class="btn btn-info btn-xs" data-toggle="dropdown">操作 <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
-                                    <li><a href>编辑</a></li>
+                                    <li><a ui-sref="app.weixin.edit({id:channel.id})">编辑</a></li>
                                     <li><a href>删除</a></li>
                                 </ul>
                             </div>

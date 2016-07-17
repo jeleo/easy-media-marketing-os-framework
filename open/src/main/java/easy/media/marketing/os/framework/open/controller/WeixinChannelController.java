@@ -8,10 +8,7 @@ import easy.media.marketing.os.framework.open.service.WeixinChannelService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,12 +44,17 @@ public class WeixinChannelController extends ControllerBus {
     }
 
     @RequestMapping(value = "/list.json", method = RequestMethod.GET)
-    public Object listChannel() {
+    public Object listChannels() {
         List<WeixinSetup> channels = new ArrayList<>();
         for(WeixinChannel weixinChannel : weixinChannelService.findByUserUid(super.getFromSession().getUid())) {
             channels.add(WeixinSetup.convert(weixinChannel));
         }
         return channels;
+    }
+
+    @RequestMapping(value = "/get.json", method = RequestMethod.GET)
+    public Object getChannel(@RequestParam(value = "id", required = true) Long id) {
+        return WeixinSetup.convert(weixinChannelService.getOneById(id));
     }
 
     @Autowired

@@ -24,6 +24,21 @@
                 </div>
                 <div class="form-group">
                     <label class="col-lg-4 control-label">
+                        公众号类型
+                        <span class="text-danger-lter">*</span>
+                    </label>
+                    <div class="col-lg-8">
+                        <ui-select name="accountType" ng-model="setup.accountType" required theme="bootstrap">
+                            <ui-select-match placeholder="-- 请选择 --">{{$select.selected.name}}</ui-select-match>
+                            <ui-select-choices repeat="item in accountTypes | filter: $select.search">
+                                <div ng-bind-html="item.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <span class="help-block m-b-none">请认真选择,错了不能修改!</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">
                         公众号OpenId
                         <span class="text-danger-lter">*</span>
                     </label>
@@ -57,17 +72,6 @@
                     </label>
                     <div class="col-lg-8">
                         <input type="text" class="form-control" placeholder="" name="weixinAccount" ng-model="setup.weixinAccount" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-4 control-label">公众号类型</label>
-                    <div class="col-lg-8">
-                        <ui-select name="accountType" ng-model="setup.accountType" required theme="bootstrap">
-                            <ui-select-match placeholder="-- 请选择 --">{{$select.selected.name}}</ui-select-match>
-                            <ui-select-choices repeat="item in accountTypes | filter: $select.search">
-                                <div ng-bind-html="item.name | highlight: $select.search"></div>
-                            </ui-select-choices>
-                        </ui-select>
                     </div>
                 </div>
                 <div class="form-group">

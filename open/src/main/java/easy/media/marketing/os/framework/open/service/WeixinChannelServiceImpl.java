@@ -71,6 +71,11 @@ public class WeixinChannelServiceImpl implements WeixinChannelService {
         return token;
     }
 
+    @Override
+    public WeixinChannel getOneById(Long id) {
+        return weixinChannelRepository.getOne(id);
+    }
+
     @Autowired
     private WeixinChannelRepository weixinChannelRepository;
 }
