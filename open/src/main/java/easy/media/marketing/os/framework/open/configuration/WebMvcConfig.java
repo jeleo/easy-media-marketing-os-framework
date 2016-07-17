@@ -68,7 +68,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public FreeMarkerViewResolver freeMarkerViewResolver(@Value("${static.resources.url}") String static_resources_url) {
+    public FreeMarkerViewResolver freeMarkerViewResolver(@Value("${static.resources.url}") String static_resources_url, @Value("${api.weixin.url}") String api_weixin_url) {
         FreeMarkerViewResolver viewResolver = new FreeMarkerViewResolver();
 
         viewResolver.setSuffix(".ftl");
@@ -77,9 +77,10 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         viewResolver.setRequestContextAttribute("rc");
         // 传递静态资源根路径
         viewResolver.getAttributesMap().put("static_resources_url", static_resources_url);
-
         // 设置版权
         viewResolver.getAttributesMap().put("copyright", Copyright.INFO);
+        // 传递API项目微信回调URL
+        viewResolver.getAttributesMap().put("api_weixin_url", api_weixin_url);
         return viewResolver;
     }
 
