@@ -2,11 +2,11 @@ app.controller('WeixinListController', ['$scope', '$http', '$state', '$modal', f
     var list = function() {
         $http.get(api("/weixin/list.json"))
             .success(function (data) {
+                $scope.channels = data;
                 if (data.length == 0) {
                     $scope.authError = "您还未添加微信公众号。";
                     return;
                 }
-                $scope.channels = data;
                 $scope.delete = function (id, name) {
                     $modal.open({
                         templateUrl: 'deleteWeixin.html',
