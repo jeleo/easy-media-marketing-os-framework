@@ -21,4 +21,9 @@ public class OpenErrorEntry extends ErrorEntry {
 
     public final static ErrorInfo e20004 = new ErrorInfo(OpenErrorString.e20004);
 
+    /**
+     * 微信渠道
+     * */
+    public final static ErrorInfo e30005 = new ErrorInfo(OpenErrorString.e30005);
+
 }

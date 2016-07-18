@@ -21,4 +21,9 @@ public class OpenErrorString extends ErrorString {
 
     public final static String e20004 ="20004, 邮箱已存在";
 
+    /**
+     * 微信渠道
+     * */
+    public final static String e30005 = "30005, 公众号类型不允许为空";
+
 }

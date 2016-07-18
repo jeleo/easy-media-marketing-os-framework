@@ -3,6 +3,7 @@ app.controller('WeixinSetupController', ['$scope', '$http', '$state', '$location
         $state.go("app.weixin.list");
     };
     var setupTypeIsAdd = new RegExp("add" + "$").test($location.url());
+    $scope.setupTypeIsAdd = setupTypeIsAdd;
     if (setupTypeIsAdd) {
         $scope.setupTypeDisplay = "添加";
         // 优先获取微信公众号枚举类型

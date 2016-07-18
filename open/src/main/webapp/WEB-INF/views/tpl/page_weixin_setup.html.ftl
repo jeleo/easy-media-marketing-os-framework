@@ -7,7 +7,7 @@
     </div>
     <div class="wrapper-md">
         <div class="col-sm-6">
-            <form class="bs-example form-horizontal">
+            <form class="bs-example form-horizontal form-validation">
                 <div class="form-group">
                     <div class="text-danger wrapper text-center" ng-show="authError">
                         {{authError}}
@@ -102,7 +102,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-offset-4 col-lg-8">
-                        <button type="button" class="btn btn-sm btn-info" ng-click="saveSetup()" ng-disabled='form.$invalid'>保存</button>
+                        <button type="submit" class="btn btn-sm btn-info" ng-click="saveSetup()" ng-disabled='form.$invalid'>保存</button>
                     </div>
                 </div>
             </form>

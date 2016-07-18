@@ -25,6 +25,9 @@ public class WeixinChannelController extends ControllerBus {
 
     @RequestMapping(value = "/add.json", method = RequestMethod.POST)
     public Object addChannel(@RequestBody WeixinSetup weixinSetup) {
+        if (weixinSetup.getAccountType() == null) {
+            return OpenErrorEntry.e30005;
+        }
         try {
             weixinChannelService.create(super.getFromSession().getUid(), weixinSetup.getName(), weixinSetup.getOpenId(), weixinSetup.getAppId(), weixinSetup.getAppSecret(), AccountType.match(weixinSetup.getAccountType().getValue()), weixinSetup.getWeixinAccount(), weixinSetup.getComment());
         } catch (Exception e) {
@@ -46,8 +49,14 @@ public class WeixinChannelController extends ControllerBus {
     }
 
     @RequestMapping(value = "/delete.json", method = RequestMethod.POST)
-    public Object deleteChannel() {
-        return null;
+    public Object deleteChannel(@RequestBody Long id) {
+        try {
+            weixinChannelService.deleteById(id);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            return OpenErrorEntry.e00001;
+        }
+        return OpenErrorEntry.e00000;
     }
 
     @RequestMapping(value = "/list.json", method = RequestMethod.GET)

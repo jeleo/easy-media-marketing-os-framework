@@ -25,7 +25,7 @@ public class WeixinChannel {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "USER_UID", unique = true, nullable = false)
+    @Column(name = "USER_UID", nullable = false)
     private String userUid;
 
     @Column(name = "NAME", nullable = false)
