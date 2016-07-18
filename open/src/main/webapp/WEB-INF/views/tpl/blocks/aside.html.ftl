@@ -39,7 +39,7 @@
         <!-- / user -->
 
         <!-- nav -->
-        <nav ui-nav class="navi clearfix" ng-include="'views/nav.html'"></nav>
+        <nav ui-nav class="navi clearfix" ng-include="app.menu.url"></nav>
         <!-- nav -->
 
         <!-- aside footer -->

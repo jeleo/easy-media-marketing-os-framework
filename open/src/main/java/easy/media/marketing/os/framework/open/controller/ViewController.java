@@ -83,6 +83,11 @@ public class ViewController extends ControllerBus {
         return page(VIEW_WEIXIN_SETUP);
     }
 
+    @RequestMapping(value = VIEW_WEIXIN_DETAIL, method = RequestMethod.GET)
+    public String toWeixinDetail() {
+        return page(VIEW_WEIXIN_DETAIL);
+    }
+
     private String layout(String path) {
         return "/tpl/blocks" + path;
     }

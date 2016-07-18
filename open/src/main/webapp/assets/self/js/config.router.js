@@ -85,6 +85,11 @@ angular.module('app')
                     url: '/edit?id',
                     templateUrl: 'views/page_weixin_edit.html',
                     resolve: load( ['js/controllers/weixin/setup.js'] )
+                })
+                .state('app.weixin.detail', {
+                    url: '/detail?id',
+                    templateUrl: 'views/page_weixin_detail.html',
+                    resolve: load( ['js/controllers/weixin/detail.js'] )
                 });
 
             function load(srcs, callback) {

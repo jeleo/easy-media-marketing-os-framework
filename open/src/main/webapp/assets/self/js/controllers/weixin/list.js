@@ -1,4 +1,4 @@
-app.controller('WeixinListController', ['$scope', '$http', '$modal', function ($scope, $http, $modal) {
+app.controller('WeixinListController', ['$scope', '$http', '$state', '$modal', function ($scope, $http, $state, $modal) {
     var list = function() {
         $http.get(api("/weixin/list.json"))
             .success(function (data) {
@@ -35,4 +35,7 @@ app.controller('WeixinListController', ['$scope', '$http', '$modal', function ($
             });
     };
     list();
+    $scope.goDetail = function(id) {
+        $state.go("app.weixin.detail", {id: id});
+    }
 }]);

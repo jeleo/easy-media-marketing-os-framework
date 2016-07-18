@@ -39,7 +39,7 @@
                         </li>
                     </ul>
                     <div class="panel-footer text-center">
-                        <a href class="btn btn-info font-bold m">进入公众号</a>
+                        <a ng-click="goDetail(channel.id)" class="btn btn-info font-bold m">进入公众号</a>
                     </div>
                 </div>
             </div>
