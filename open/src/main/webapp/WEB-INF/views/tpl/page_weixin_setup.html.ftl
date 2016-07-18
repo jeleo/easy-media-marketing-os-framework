@@ -28,13 +28,14 @@
                         <span class="text-danger-lter">*</span>
                     </label>
                     <div class="col-lg-8">
-                        <ui-select name="accountType" ng-model="setup.accountType" required theme="bootstrap">
+                        <ui-select name="accountType" ng-model="setup.accountType" ng-if="setupTypeIsAdd" required theme="bootstrap">
                             <ui-select-match placeholder="-- 请选择 --">{{$select.selected.name}}</ui-select-match>
                             <ui-select-choices repeat="item in accountTypes | filter: $select.search">
                                 <div ng-bind-html="item.name | highlight: $select.search"></div>
                             </ui-select-choices>
                         </ui-select>
-                        <span class="help-block m-b-none">请认真选择,错了不能修改!</span>
+                        <span class="help-block m-b-none" ng-if="setupTypeIsAdd">请认真选择,错了不能修改!</span>
+                        <p class="form-control-static" ng-if="!setupTypeIsAdd">{{setup.accountType.name}}</p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -43,8 +44,9 @@
                         <span class="text-danger-lter">*</span>
                     </label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control" placeholder="" name="openId" ng-model="setup.openId" required>
-                        <span class="help-block m-b-none">请认真填写,错了不能修改!</span>
+                        <input type="text" class="form-control" placeholder="" name="openId" ng-model="setup.openId" ng-if="setupTypeIsAdd" required>
+                        <span class="help-block m-b-none" ng-if="setupTypeIsAdd">请认真填写,错了不能修改!</span>
+                        <p class="form-control-static" ng-if="!setupTypeIsAdd">{{setup.openId}}</p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -72,6 +74,22 @@
                     </label>
                     <div class="col-lg-8">
                         <input type="text" class="form-control" placeholder="" name="weixinAccount" ng-model="setup.weixinAccount" required>
+                    </div>
+                </div>
+                <div class="form-group" ng-if="!setupTypeIsAdd">
+                    <label class="col-lg-4 control-label">
+                        回调地址
+                    </label>
+                    <div class="col-lg-8">
+                        <p class="form-control-static">${api_weixin_url}/{{setup.callback}}</p>
+                    </div>
+                </div>
+                <div class="form-group" ng-if="!setupTypeIsAdd">
+                    <label class="col-lg-4 control-label">
+                        Token
+                    </label>
+                    <div class="col-lg-8">
+                        <p class="form-control-static">{{setup.token}}</p>
                     </div>
                 </div>
                 <div class="form-group">

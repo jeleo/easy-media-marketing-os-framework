@@ -53,7 +53,9 @@ public class WeixinChannelServiceImpl implements WeixinChannelService {
         weixinChannel.setName(name);
         weixinChannel.setAppId(appId);
         weixinChannel.setAppSecret(appSecret);
-        weixinChannel.setAccountType(accountType);
+        if (accountType != null) {
+            weixinChannel.setAccountType(accountType);
+        }
         weixinChannel.setWeixinAccount(weixinAccount);
         weixinChannel.setComment(comment);
         return weixinChannelRepository.save(weixinChannel);

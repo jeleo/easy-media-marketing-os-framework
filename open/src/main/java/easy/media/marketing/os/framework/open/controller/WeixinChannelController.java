@@ -3,6 +3,7 @@ package easy.media.marketing.os.framework.open.controller;
 import easy.media.marketing.os.framework.commons.constants.weixin.AccountType;
 import easy.media.marketing.os.framework.open.entity.WeixinChannel;
 import easy.media.marketing.os.framework.open.error.OpenErrorEntry;
+import easy.media.marketing.os.framework.open.model.EnumHelper;
 import easy.media.marketing.os.framework.open.model.WeixinSetup;
 import easy.media.marketing.os.framework.open.service.WeixinChannelService;
 import org.slf4j.Logger;
@@ -34,8 +35,14 @@ public class WeixinChannelController extends ControllerBus {
     }
 
     @RequestMapping(value = "/edit.json", method = RequestMethod.POST)
-    public Object editChannel() {
-        return null;
+    public Object editChannel(@RequestBody WeixinSetup weixinSetup) {
+        try {
+            weixinChannelService.update(weixinSetup.getId(), weixinSetup.getName(), weixinSetup.getAppId(), weixinSetup.getAppSecret(), weixinSetup.gainAccountType(), weixinSetup.getWeixinAccount(), weixinSetup.getComment());
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            return OpenErrorEntry.e00001;
+        }
+        return OpenErrorEntry.e00000;
     }
 
     @RequestMapping(value = "/delete.json", method = RequestMethod.POST)

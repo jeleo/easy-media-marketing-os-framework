@@ -1,5 +1,6 @@
 package easy.media.marketing.os.framework.open.model;
 
+import easy.media.marketing.os.framework.commons.constants.weixin.AccountType;
 import easy.media.marketing.os.framework.open.entity.WeixinChannel;
 import org.springframework.beans.BeanUtils;
 
@@ -24,6 +25,10 @@ public class WeixinSetup {
         BeanUtils.copyProperties(weixinChannel, weixinSetup, "accountType");
         weixinSetup.setAccountType(new EnumHelper(weixinChannel.getAccountType().display, weixinChannel.getAccountType().value));
         return weixinSetup;
+    }
+
+    public AccountType gainAccountType() {
+        return this.getAccountType() == null ? null : AccountType.match(this.getAccountType().getValue());
     }
 
     public Long getId() {

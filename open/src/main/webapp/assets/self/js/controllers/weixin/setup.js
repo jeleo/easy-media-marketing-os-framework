@@ -17,8 +17,7 @@ app.controller('WeixinSetupController', ['$scope', '$http', '$state', '$location
                             } else {
                                 $scope.authError = data.errmsg;
                             }
-                        })
-                    ;
+                        });
                 }
             });
         $scope.accountType = "";
@@ -28,6 +27,16 @@ app.controller('WeixinSetupController', ['$scope', '$http', '$state', '$location
         $http.get(api("/weixin/get.json?id=" + id))
             .success(function (data) {
                 $scope.setup = data;
+                $scope.saveSetup = function () {
+                    $http.post(api("/weixin/edit.json"), $scope.setup)
+                        .success(function (data) {
+                            if (data.errcode == 0) {
+                                $scope.back();
+                            } else {
+                                $scope.authError = data.errmsg;
+                            }
+                        });
+                }
             });
     }
 
