@@ -54,7 +54,7 @@
             </h4>
         </div>
         <div class="modal-body">
-            您将删除公众号&nbsp;<span class="text-danger">{{name}}</span>&nbsp;,是否确认?
+            您将删除公众号&nbsp;<span class="text-danger">{{name}}</span>&nbsp;,&nbsp;是否确认?
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" ng-click="confirmDelete()">确定</button>

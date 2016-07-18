@@ -34,7 +34,7 @@
                                 <div ng-bind-html="item.name | highlight: $select.search"></div>
                             </ui-select-choices>
                         </ui-select>
-                        <span class="help-block m-b-none" ng-if="setupTypeIsAdd">请认真选择,错了不能修改!</span>
+                        <span class="help-block m-b-none text-danger-lter" ng-if="setupTypeIsAdd">请认真选择,错了不能修改!</span>
                         <p class="form-control-static" ng-if="!setupTypeIsAdd">{{setup.accountType.name}}</p>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                     </label>
                     <div class="col-lg-8">
                         <input type="text" class="form-control" placeholder="" name="openId" ng-model="setup.openId" ng-if="setupTypeIsAdd" required>
-                        <span class="help-block m-b-none" ng-if="setupTypeIsAdd">请认真填写,错了不能修改!</span>
+                        <span class="help-block m-b-none text-danger-lter" ng-if="setupTypeIsAdd">请认真填写,错了不能修改!</span>
                         <p class="form-control-static" ng-if="!setupTypeIsAdd">{{setup.openId}}</p>
                     </div>
                 </div>
