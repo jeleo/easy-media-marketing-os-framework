@@ -1,6 +1,6 @@
 <#import "/spring.ftl" as spring />
 <#assign base = "${rc.contextPath}">
-<div ng-controller="WeixinListController">
+<div ng-controller="WeixinDetailController">
     <div class="bg-light lter b-b wrapper-md hidden-print">
         <h1 class="m-n font-thin h3">微信公众号详情</h1>
     </div>

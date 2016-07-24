@@ -30,5 +30,6 @@ public interface Controllers {
     String VIEW_WEIXIN_ADD = "/page_weixin_add.html";
     String VIEW_WEIXIN_EDIT = "/page_weixin_edit.html";
     String VIEW_WEIXIN_DETAIL = "/page_weixin_detail.html";
+    String VIEW_WEIXIN_MENU = "/nav_weixin.html";
 
 }

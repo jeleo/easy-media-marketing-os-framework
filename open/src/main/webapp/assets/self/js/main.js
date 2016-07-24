@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('app')
-    .controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window',
-        function ($scope, $translate, $localStorage, $window) {
+    .controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window', '$rootScope',
+        function ($scope, $translate, $localStorage, $window, $rootScope) {
             // add 'ie' classes to html
             var isIE = !!navigator.userAgent.match(/MSIE/i);
             if (isIE) {
@@ -77,5 +77,19 @@ angular.module('app')
                 // Checks for iOs, Android, Blackberry, Opera Mini, and Windows mobile devices
                 return (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(ua);
             }
+
+            // 控制布局左侧菜单变化
+            $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
+                var appMenuUrl = 'views/nav.html';
+                var toUrl = toState.name;
+                switch (toUrl) {
+                    case 'app.weixin.detail':
+                        appMenuUrl = 'views/nav_weixin.html';
+                        break;
+                    default :
+                        break;
+                }
+                $scope.appMenuUrl = appMenuUrl;
+            });
 
         }]);
