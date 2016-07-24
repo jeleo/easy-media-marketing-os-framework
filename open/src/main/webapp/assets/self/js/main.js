@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('app')
-    .controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window', '$rootScope',
-        function ($scope, $translate, $localStorage, $window, $rootScope) {
+    .controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window', '$rootScope', '$http', '$state',
+        function ($scope, $translate, $localStorage, $window, $rootScope, $http, $state) {
             // add 'ie' classes to html
             var isIE = !!navigator.userAgent.match(/MSIE/i);
             if (isIE) {
@@ -77,6 +77,14 @@ angular.module('app')
                 // Checks for iOs, Android, Blackberry, Opera Mini, and Windows mobile devices
                 return (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(ua);
             }
+
+            $scope.logout = function () {
+                $http.get(api("/auth/logout"))
+                    .then(function (response) {
+                        $state.go('access.signin');
+                    }, function (x) {
+                    });
+            };
 
             // 控制布局左侧菜单变化
             $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){

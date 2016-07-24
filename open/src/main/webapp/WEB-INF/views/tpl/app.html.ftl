@@ -6,7 +6,7 @@
 <!-- / navbar -->
 
 <!-- menu -->
-<div ng-controller="MenuController" data-ng-include=" 'views/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}">
+<div data-ng-include=" 'views/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}">
 </div>
 <!-- / menu -->
 

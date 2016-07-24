@@ -1,12 +1,12 @@
 <#import "/spring.ftl" as spring />
 <#assign base = "${rc.contextPath}">
 <!-- list -->
-<ul class="nav">
+<ul class="nav" ng-controller="WeixinNavController">
     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
         <span translate="aside.nav.HEADER">向导</span>
     </li>
     <li ui-sref-active="active">
-        <a ui-sref="app.dashboard">
+        <a ng-click="nav_weinxin_1()">
             <i class="glyphicon glyphicon-leaf icon text-info-lter"></i>
             <span class="font-bold">公众号详情</span>
         </a>
@@ -30,4 +30,12 @@
         </a>
     </li>
 </ul>
+<script>
+    app.controller('WeixinNavController', function($scope, $state, $location) {
+        var id = $location.search()['id'];
+        $scope.nav_weinxin_1 = function() {
+            $state.go("app.weixin.detail", {id: id});
+        }
+    });
+</script>
 <!-- / list -->
