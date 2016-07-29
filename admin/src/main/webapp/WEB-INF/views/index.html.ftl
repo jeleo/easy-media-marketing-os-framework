@@ -15,11 +15,11 @@
     <link rel="stylesheet" href="${resources}/assets/vendor/jquery/bootstrap/dist/css/bootstrap.css" type="text/css"/>
 
     <!-- build:css css/app.min.css -->
-    <link rel="stylesheet" href="${base}/assets/self/css/font.css" type="text/css"/>
-    <link rel="stylesheet" href="${base}/assets/self/css/app.css" type="text/css"/>
+    <link rel="stylesheet" href="${resources}/assets/admin/css/font.css" type="text/css"/>
+    <link rel="stylesheet" href="${resources}/assets/admin/css/app.css" type="text/css"/>
     <!-- endbuild -->
 
-    <link rel="shortcut icon" href="${base}/assets/self/img/favicon.ico"/>
+    <link rel="shortcut icon" href="${resources}/assets/commons/img/favicon.ico"/>
 </head>
 <body ng-controller="AppCtrl">
 <div style="display: none;" id="context_path">${base}</div>
@@ -60,25 +60,25 @@
 <script src="${resources}/assets/vendor/angular/angular-translate-storage-local/angular-translate-storage-local.js"></script>
 
 <!-- App -->
-<script src="${base}/assets/self/js/app.js"></script>
-<script src="${base}/assets/self/js/config.js"></script>
-<script src="${base}/assets/self/js/config.lazyload.js"></script>
-<script src="${base}/assets/self/js/factories/globalService.js"></script>
-<script src="${base}/assets/self/js/config.router.js"></script>
-<script src="${base}/assets/self/js/main.js"></script>
-<script src="${base}/assets/self/js/services/ui-load.js"></script>
-<script src="${base}/assets/self/js/filters/fromNow.js"></script>
-<script src="${base}/assets/self/js/directives/setnganimate.js"></script>
-<script src="${base}/assets/self/js/directives/ui-butterbar.js"></script>
-<script src="${base}/assets/self/js/directives/ui-focus.js"></script>
-<script src="${base}/assets/self/js/directives/ui-fullscreen.js"></script>
-<script src="${base}/assets/self/js/directives/ui-jq.js"></script>
-<script src="${base}/assets/self/js/directives/ui-module.js"></script>
-<script src="${base}/assets/self/js/directives/ui-nav.js"></script>
-<script src="${base}/assets/self/js/directives/ui-scroll.js"></script>
-<script src="${base}/assets/self/js/directives/ui-shift.js"></script>
-<script src="${base}/assets/self/js/directives/ui-toggleclass.js"></script>
-<script src="${base}/assets/self/js/controllers/bootstrap.js"></script>
+<script src="${resources}/assets/admin/js/app.js"></script>
+<script src="${resources}/assets/admin/js/config.js"></script>
+<script src="${resources}/assets/admin/js/config.lazyload.js"></script>
+<script src="${resources}/assets/admin/js/factories/globalService.js"></script>
+<script src="${resources}/assets/admin/js/config.router.js"></script>
+<script src="${resources}/assets/admin/js/main.js"></script>
+<script src="${resources}/assets/admin/js/services/ui-load.js"></script>
+<script src="${resources}/assets/admin/js/filters/fromNow.js"></script>
+<script src="${resources}/assets/admin/js/directives/setnganimate.js"></script>
+<script src="${resources}/assets/admin/js/directives/ui-butterbar.js"></script>
+<script src="${resources}/assets/admin/js/directives/ui-focus.js"></script>
+<script src="${resources}/assets/admin/js/directives/ui-fullscreen.js"></script>
+<script src="${resources}/assets/admin/js/directives/ui-jq.js"></script>
+<script src="${resources}/assets/admin/js/directives/ui-module.js"></script>
+<script src="${resources}/assets/admin/js/directives/ui-nav.js"></script>
+<script src="${resources}/assets/admin/js/directives/ui-scroll.js"></script>
+<script src="${resources}/assets/admin/js/directives/ui-shift.js"></script>
+<script src="${resources}/assets/admin/js/directives/ui-toggleclass.js"></script>
+<script src="${resources}/assets/admin/js/controllers/bootstrap.js"></script>
 <!-- endbuild -->
 <!-- Lazy loading -->
 </body>

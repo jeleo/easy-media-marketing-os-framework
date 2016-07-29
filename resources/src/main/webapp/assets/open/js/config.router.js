@@ -107,7 +107,7 @@ angular.module('app')
                                     if (JQ_CONFIG[src]) {
                                         return $ocLazyLoad.load(JQ_CONFIG[src]);
                                     }
-                                    var name = context_path + '/assets/self/' + src;
+                                    var name = static_resources_url + '/assets/open/' + src;
                                     var keepGoing = true;
                                     angular.forEach(MODULE_CONFIG, function (module) {
                                         if (keepGoing) {

@@ -72,7 +72,7 @@ angular.module('app')
                                 promise = deferred.promise;
                             }
                             angular.forEach(srcs, function (src) {
-                                src = context_path + '/assets/self/' + src;
+                                src = static_resources_url + '/assets/admin/' + src;
                                 promise = promise.then(function () {
                                     if (JQ_CONFIG[src]) {
                                         return $ocLazyLoad.load(JQ_CONFIG[src]);

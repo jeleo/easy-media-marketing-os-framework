@@ -1,5 +1,6 @@
 <#import "/spring.ftl" as spring />
 <#assign base = "${rc.contextPath}">
+<#assign resources = "${static_resources_url}">
 <div class="aside-wrap">
     <!-- if you want to use a custom scroll when aside fixed, use the slimScroll
       <div class="navi-wrap" ui-jq="slimScroll" ui-options="{height:'100%', size:'8px'}">
@@ -10,7 +11,7 @@
             <div class="dropdown wrapper" dropdown>
                 <a ui-sref="app.page.profile">
                     <span class="thumb-lg w-auto-folded avatar m-t-sm">
-                        <img src="${base}/assets/self/img/avatar_loss.png" class="img-full" alt="...">
+                        <img src="${resources}/assets/commons/img/avatar_loss.png" class="img-full" alt="...">
                     </span>
                 </a>
                 <a href class="dropdown-toggle hidden-folded" dropdown-toggle>
